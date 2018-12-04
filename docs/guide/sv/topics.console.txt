@@ -1,0 +1,190 @@
+Konsolapplikationer
+===================
+
+Konsolapplikationer används huvudsakligen till att utföra offline-arbete 
+åt uppkopplade (online) webbapplikationer, så som kodgenerering, 
+kompilering av sökindex, skicka mail, etc. Yii erbjuder ett ramverk för 
+framställning av konsolapplikationer på ett objektorienterat och systematiskt sätt.
+Det ger konsolapplikationer möjlighet att använda sig av resurser (t.ex. DB-anslutningar) 
+som används av en uppkopplad webbapplikation.
+
+Overview
+--------
+
+Yii representerar varje konsoluppgift i termer av [kommando|CConsoleCommand]. 
+Ett konsolkommando skrivs i form av en klass som ärver från och utvidgar [CConsoleCommand].
+
+Konsolkommandon hanteras av en [konsolapplikation|CConsoleApplication].
+En konsolapplikation är snarlik en webapplikation, med innebörd att den konfigureras 
+med en applikationskonfiguration och behöver startas via ett startskript.
+
+För att köra ett konsolkommando används följande kommandoradsformat i ett terminalfönster:
+
+~~~
+php entryScript.php CommandName Param0 Param1 ...
+~~~
+
+
+Startskript
+-----------
+
+Som tidigare nämnts krävs ett startskript för att köra ett konsolkommando. 
+Om en applikation skapas med hjälp av verktyget `yiic webapp`, innehåller 
+den redan en konsolapplikation med ett tillhörande startskript placerat som 
+`protected/yiic.php`.
+
+Vi kan även skriva startskriptet från början så som följer:
+
+~~~
+[php]
+// include Yii bootstrap file
+require_once('path/to/yii/framework/yii.php');
+// create application instance and run
+$configFile='path/to/config/file.php';
+Yii::createConsoleApplication($configFile)->run();
+~~~
+
+
+Konsolkommando
+--------------
+
+Konsolkommandon lagras som klassfiler under katalogen som specificeras av 
+[CConsoleApplication::commandPath]. Som standard innebär detta katalogen 
+`protected/commands`.
+
+En konsolkommandoklass måste ärva från och utvidga [CConsoleCommand]. 
+Klassnamnet måste ha formatet `XyzCommand`, där `Xyz` refererar till kommandots 
+namn, med första bokstaven som versal. Till exempel, ett `sitemap`-kommando måste
+använda klassnamnet `SitemapCommand`. Av denna anledning är namn på konsolkommandon 
+skiftlägesberoende.
+
+> Tip|Tips: Genom konfigurering av [CConsoleApplication::commandMap] kan man 
+> även ha kommandoklasser med andra namngivningskonventioner och placerade i andra 
+> kataloger.
+
+I en konsolkommandoklass måste man antingen skriva några konsolkommandoåtgärder (actions) 
+(beskrivs i nästa delavsnitt), eller åsidosätta metoden [CConsoleCommand::run()] 
+vars signatur är:
+
+~~~
+[php]
+public function run($args) { ... }
+~~~
+
+där `$args` refererar till de extra parametrarna givna från kommandoraden.
+
+
+Konsolkommandoåtgärd
+--------------------
+
+> Note|Märk: Finessen konsolkommandoåtgärd har varit tillgänglig sedan version 1.1.5.
+
+Ett konsolkommando behöver ofta hantera olika parametrar. Till exempel ett 
+`sitemap`-kommando kan behöva en parameter som specificerar vilken typ av sajtöversikt som 
+skall genereras. Ett kommando kan delas upp på ett flertal åtgärder (actions), var och en 
+ansvarig för en specifik deluppgift, så som är fallet i [CController].
+
+En konsolkommandoåtgärd implementeras i form av en metod i konsolkommandoklassen.
+Metodens namn måste ha formatet `actionXyz`, där `Xyz` refererar till åtgärdsnamnet 
+med första bokstaven som versal. Till exempel metoden `actionIndex` definierar en 
+åtgärd med namnet `index`.
+
+För att exekvera en specifik åtgärd används följande konsolkommandoformat:
+
+~~~
+php entryScript.php CommandName ActionName --Option1=Value1 --Option2=Value2 ...
+~~~
+
+De tillkommande alternativ-värdeparen kommer lämnas med som parametrar till åtgärdsmetoden.
+Värdet för ett alternativ `xyz` propageras som `$xyz`-parametern i åtgärdsmetoden.
+Till exempel, om vi definierar följande kommandoklass:
+
+~~~
+[php]
+class SitemapCommand extends CConsoleCommand
+{
+    public function actionIndex($type, $limit=5) { ... }
+    public function actionInit() { ... }
+}
+~~~
+
+Följande konsolkommandon kommer alla att leda till metodanropet `actionIndex('News', 5)`:
+
+~~~
+php entryScript.php sitemap index --type=News --limit=5
+
+// $limit erhåller standardvärde
+php entryScript.php sitemap index --type=News
+
+// $limit erhåller standardvärde
+// eftersom 'index' är standardåtgärd kan åtgärdsnamnet utelämnas
+php entryScript.php sitemap --type=News
+
+// alternativens ordning saknar betydelse
+php entryScript.php sitemap index --limit=5 --type=News
+~~~
+
+Om ett alternativ ges utan värde (t.ex. `--type` i stället för `--type=News`),  
+förmodas att motsvarande åtgärdsparameter skall ges värdet boolean `true`.
+
+> Note|Märk: Variationer i alternativens format så som 
+> `--type News`, `-t News` stöds inte.
+
+En parameters värde kan vara av typen array om den deklareras med typledtråd:
+
+~~~
+[php]
+public function actionIndex(array $types) { ... }
+~~~
+
+Faktiskt arrayinnehåll levereras genom att samma alternativ upprepas på kommandoraden:
+
+~~~
+php entryScript.php sitemap index --types=News --types=Article
+~~~
+
+Ovanstående kommando leder till metodanropet `actionIndex(array('News', 'Article'))`.
+
+
+Accessing Resources
+-------------------
+
+Inifrån ett kommando kan konsolapplikationens instans kommas åt 
+via `Yii::app()`. I likhet med en webbapplikationsinstans, kan även en 
+konsolapplikation konfigureras. Till exempel, kan en applikationskomponent `db` 
+konfigureras för tillgång till en databas. Konfigurationen specificeras 
+vanligtvis som en PHP-fil och lämnas till konstruktorn för konsolapplikationens 
+klass (eller [createConsoleApplication|YiiBase::createConsoleApplication] i startskripetet).
+
+
+Använda verktyget `yiic`
+------------------------
+
+Vi har använt `yiic`-verktyget för att [skapa en första 
+applikation](/doc/guide/quickstart.first-app). Faktum är att verktyget `yiic` är 
+implementerat som en konsolapplikation vars startskriptfil är 
+`framework/yiic.php`. Genom att använda `yiic`, kan vi utföra uppgifter såsom 
+skapa ett skelett till en webbapplikation, generera en kontroller- eller 
+modellklass, generera kod som behövs för att utföra CRUD-operationer, extrahera 
+meddelanden som skall översättas, etc.
+
+Verktyget `yiic` kan utökas genom tillägg av egna anpassade kommandon. För att 
+göra så, börjar vi med ett applikationsskelett skapat med hjälp av kommandot 
+`yiic webapp`, så som beskrivs i [Skapa en första Yii-
+applikation](/doc/guide/quickstart.first-app). Kommandot `yiic webapp` genererar 
+två filer i katalogen `protected`: `yiic` och `yiic.bat`. De utgör den *lokala* 
+versionen av `yiic`-verktyget, skapad speciellt för webbapplikationen.
+
+Därefter kan vi skapa våra egna kommandon under katalogen `protected/commands`. 
+När vi kör det lokala `yiic`-verktyget, kommer vi att se våra egna kommandon 
+förutom de som är standard. Vi kan också skapa egna kommandon som skall användas 
+med `yiic shell`. För att göra så, placera bara kommandonas klassfiler i 
+katalogen `protected/commands/shell`.
+
+Med start från version 1.1.1, kan vi även skapa globala kommandon som kan delas
+av alla Yii-applikationer i samma maskin. För att åstadkomma detta, definiera
+miljövariabeln `YII_CONSOLE_COMMANDS` att peka till en existerande katalog.
+Globala klassfiler som placeras i denna katalog kommer att bli tillgängliga 
+varhelst `yiic`-verktyget används.
+
+<div class="revision">$Id: topics.console.txt 2580 2010-10-28 18:08:46Z qiang.xue $</div>

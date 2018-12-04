@@ -1,0 +1,29 @@
+Yii 权威指南
+===========================
+
+此教程在 [the Terms of Yii Documentation](http://www.yiiframework.com/doc/terms/) 下发布。
+
+
+历史版本翻译者（名单来源于SVN历史版本记录，按字母顺序排列）：
+
+* dofy
+* dongbeta
+* dreaminto
+* HonestQiao
+* imdong
+* Leric
+* moho
+* nowgoo
+* qiang
+* riverlet（[Yii 中国开发者网站](http://www.yiikuangjia.com)）
+* sharehua 
+* thaiki
+
+
+
+All Rights Reserved.
+
+2008-2010 &copy; Yii Software LLC.
+
+
+<div class="revision">$Id: index.txt 1703 2010-10-08 05:26:18Z HonestQiao $</div>
