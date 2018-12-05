@@ -104,7 +104,7 @@ exist.');
 		     $this->loadProject($model->project_id);
 		     $model->project_id = $this->_project->id;
 		  /*    var_dump($this->_project->id);
-		echo exit;   */
+		echo exit;   */ 
 		   
 		if(isset($_POST['Issue']))
 		{
