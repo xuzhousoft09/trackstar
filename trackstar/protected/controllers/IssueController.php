@@ -84,7 +84,7 @@ exist.');
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
-
+		
 		if(isset($_POST['Issue']))
 		{
 			$model->attributes=$_POST['Issue'];
@@ -96,24 +96,18 @@ exist.');
 			'model'=>$model,
 		));
 	}
-
-	/**
-	 * Updates a particular model.
-	 * If update is successful, the browser will be redirected to the 'view' page.
-	 * @param integer $id the ID of the model to be updated
-	 */
 	public function actionUpdate($id)
 	{
+	    
 		$model=$this->loadModel($id);
-		
-		
-
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
-
+		        
+		     $this->loadProject($model->project_id);
+		     $model->project_id = $this->_project->id;
+		  /*    var_dump($this->_project->id);
+		echo exit;   */
+		   
 		if(isset($_POST['Issue']))
 		{
-		    print_r($_POST['Issue']);
 		    
 			$model->attributes=$_POST['Issue'];
 			if($model->save())
