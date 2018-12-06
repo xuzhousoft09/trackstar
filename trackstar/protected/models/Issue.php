@@ -33,7 +33,7 @@ class Issue extends CActiveRecord
     
  /*    const TYPE_NOT_YET_STARTED=3;
     const TYPE_STARTED=4;
-    const TYPE_FINISHED=5; */
+    const TYPE_FINISHED=5;  */
     
     public function getTypeOptions()
     {
@@ -47,7 +47,7 @@ class Issue extends CActiveRecord
     
     
     
- /*    public function getStatusOptions()
+  /*   public function getStatusOptions()
     {
         return array(
             self::TYPE_NOT_YET_STARTED=>'Not yet started',
@@ -55,7 +55,7 @@ class Issue extends CActiveRecord
             self::TYPE_FINISHED=>'Finished',
         );
         
-    } */ 
+    }   */
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @return Issue the static model class
