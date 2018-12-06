@@ -24,26 +24,29 @@ $this->menu=array(
 		'name',
 		'description',
 		/* 'project_id', */
-	    array(
+	     array(
 	        'name'=>'type_id',
 	        'value'=>CHtml::encode($model->getTypeText()),
 	    ),
+	    /*
 	    array(
 	      'name'=>'status_id',
 	        'value'=>CHtml::encode($model->getStatusText())
-	    ),
-	    array(
+	    ), */
+	   /*  'type_id', */
+	    'status_id',
+	    
+	    /* array(
 	      'name'=>'owner_id',
 	        'value'=>CHtml::encode($model->owner->username)
-	    ),
-	    array(
+	    ), */
+	   /*  array(
 	        'name'=>'requester_id',
 	        'value'=>CHtml::encode($model->requester->username)
-	    ),
-	/* 	'type_id', */
-		/* 'status_id', */
-		/* 'owner_id', */
-		/* 'requester_id', */
+	    ), */
+	
+		'owner_id', 
+	   'requester_id', 
 		
 	),
 )); ?>
