@@ -32,7 +32,7 @@ exist.');
 	{
 		return array(
 			'accessControl', // perform access control for CRUD operations
-		    'projectContext + create',
+		    'projectContext + create index admin',
 		);
 	}
 
@@ -144,7 +144,12 @@ exist.');
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('Issue');
+		$dataProvider=new CActiveDataProvider('Issue',array(
+		    'criteria'=>array(
+		        'condition'=>'project_id=:projectId',
+		        'params'=>array(':projectId'=>$this->_project->id),
+		    ),
+		));
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
@@ -160,6 +165,8 @@ exist.');
 		if(isset($_GET['Issue']))
 			$model->attributes=$_GET['Issue'];
 
+			$model->project_id=$this->_project->id;
+			
 		$this->render('admin',array(
 			'model'=>$model,
 		));
