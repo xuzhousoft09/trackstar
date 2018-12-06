@@ -31,9 +31,9 @@ class Issue extends CActiveRecord
     const TYPE_FEATURE=1;
     const TYPE_TASK=2;
     
- /*    const TYPE_NOT_YET_STARTED=3;
+  /*   const TYPE_NOT_YET_STARTED=3;
     const TYPE_STARTED=4;
-    const TYPE_FINISHED=5;  */
+    const TYPE_FINISHED=5; */
     
     public function getTypeOptions()
     {
@@ -41,21 +41,23 @@ class Issue extends CActiveRecord
             self::TYPE_BUG=>'Bug',
             self::TYPE_FEATURE=>'Feature',
             self::TYPE_TASK=>'Task',
+          
         );
         
     }
     
     
     
-  /*   public function getStatusOptions()
+/*    public function getStatusOptions()
     {
         return array(
             self::TYPE_NOT_YET_STARTED=>'Not yet started',
             self::TYPE_STARTED=>'Started',
             self::TYPE_FINISHED=>'Finished',
+            
         );
         
-    }   */
+    }   */ 
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @return Issue the static model class
