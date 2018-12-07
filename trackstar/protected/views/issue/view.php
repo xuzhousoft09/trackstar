@@ -28,13 +28,13 @@ $this->menu=array(
 	        'name'=>'type_id',
 	        'value'=>CHtml::encode($model->getTypeText()),
 	    ),
-	    /*
+	    
 	    array(
 	      'name'=>'status_id',
 	        'value'=>CHtml::encode($model->getStatusText())
-	    ), */
+	    ), 
 	   /*  'type_id', */
-	    'status_id',
+	    /* 'status_id', */
 	    
 	    /* array(
 	      'name'=>'owner_id',

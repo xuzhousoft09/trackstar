@@ -31,12 +31,14 @@ class Issue extends CActiveRecord
     const TYPE_FEATURE=1;
     const TYPE_TASK=2;
     
-  /*   const TYPE_NOT_YET_STARTED=3;
+    const TYPE_NOT_YET_STARTED=3;
     const TYPE_STARTED=4;
-    const TYPE_FINISHED=5; */
+    const TYPE_FINISHED=5; 
     
     public function getTypeOptions()
     {
+    	
+    	
         return array(
             self::TYPE_BUG=>'Bug',
             self::TYPE_FEATURE=>'Feature',
@@ -46,9 +48,7 @@ class Issue extends CActiveRecord
         
     }
     
-    
-    
-/*    public function getStatusOptions()
+     public function getStatusOptions()
     {
         return array(
             self::TYPE_NOT_YET_STARTED=>'Not yet started',
@@ -57,7 +57,7 @@ class Issue extends CActiveRecord
             
         );
         
-    }   */ 
+    }   
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @return Issue the static model class
@@ -166,7 +166,7 @@ class Issue extends CActiveRecord
 	/**
 	 * @return string the status text display for the current issue
 	 */
-/* 	public function getStatusText()
+ 	public function getStatusText()
 	{
 	    $statusOptions=$this->statusOptions;
 	    return isset($statusOptions[$this->status_id]) ? $statusOptions[$this->status_id] : "unknown status ({$this->status_id})";

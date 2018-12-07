@@ -80,15 +80,21 @@ exist.');
 	public function actionCreate()
 	{
 		$model=new Issue;
+		
 		$model->project_id = $this->_project->id;
-
+		
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 		
 		if(isset($_POST['Issue']))
 		{
+			 /* var_dump($_POST['Issue']['type_id']);
+			exit;  */
+			
+			
 			$model->attributes=$_POST['Issue'];
 			if($model->save())
+				
 				$this->redirect(array('view','id'=>$model->id));
 		}
 
