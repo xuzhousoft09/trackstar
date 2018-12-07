@@ -36,17 +36,17 @@ $this->menu=array(
 	   /*  'type_id', */
 	    /* 'status_id', */
 	    
-	    /* array(
+	    array(
 	      'name'=>'owner_id',
 	        'value'=>CHtml::encode($model->owner->username)
-	    ), */
-	   /*  array(
+	    ), 
+	   array(
 	        'name'=>'requester_id',
 	        'value'=>CHtml::encode($model->requester->username)
-	    ), */
+	    ), 
 	
-		'owner_id', 
-	   'requester_id', 
+	/* 	'owner_id', 
+	   'requester_id',  */
 		
 	),
 )); ?>
