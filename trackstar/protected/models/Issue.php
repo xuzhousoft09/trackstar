@@ -24,7 +24,7 @@
  * @property Project $project
  * @property User $requester
  */
-class Issue extends CActiveRecord
+class Issue extends TrackStarActiveRecord
 {
     
     const TYPE_BUG=0;

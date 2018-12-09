@@ -18,8 +18,9 @@
  * @property Issue[] $issues
  * @property Project[] $tblProjects
  */
-class User extends CActiveRecord
+class User extends TrackStarActiveRecord
 {
+	public $password_repeat;
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @return User the static model class
@@ -46,12 +47,16 @@ class User extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('email', 'required'),
-			array('create_user_id, update_user_id', 'numerical', 'integerOnly'=>true),
+			array('email, username', 'unique'),
+			/* array('create_user_id, update_user_id', 'numerical', 'integerOnly'=>true), */
 			array('email, username, password', 'length', 'max'=>256),
-			array('last_login_time, create_time, update_time', 'safe'),
+			/* array('last_login_time, create_time, update_time', 'safe'), */
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('id, email, username, password, last_login_time, create_time, create_user_id, update_time, update_user_id', 'safe', 'on'=>'search'),
+				array('password','compare'),
+				array('password_repeat','safe'),
+				array('email,username,password','required'),
 		);
 	}
 
@@ -111,4 +116,15 @@ class User extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
+	protected function afterValidate()
+	{
+		parent::afterValidate();
+		$this->password=$this->encrypt($this->password);
+	}
+	public function encrypt($value)
+	{
+		return md5($value);
+	}
+		
+	
 }
