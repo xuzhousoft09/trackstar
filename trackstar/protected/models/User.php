@@ -46,17 +46,21 @@ class User extends TrackStarActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('email', 'required'),
+			/* array('email', 'required'), */
+	        array('email, username, password', 'length', 'max'=>256),
+	        array('email,username,password','required'),
 			array('email, username', 'unique'),
+				array('password_repeat','safe'),
+				array('password','compare'),
+				
 			/* array('create_user_id, update_user_id', 'numerical', 'integerOnly'=>true), */
-			array('email, username, password', 'length', 'max'=>256),
+			
 			/* array('last_login_time, create_time, update_time', 'safe'), */
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, email, username, password, last_login_time, create_time, create_user_id, update_time, update_user_id', 'safe', 'on'=>'search'),
-				array('password','compare'),
-				array('password_repeat','safe'),
-				array('email,username,password','required'),
+			/* array('id, email, username, password, create_user_id, update_user_id', 'safe', 'on'=>'search'), */
+array('id, email, username, password, last_login_time,create_time, create_user_id, update_time, update_user_id', 'safe',
+						'on'=>'search'),
 		);
 	}
 

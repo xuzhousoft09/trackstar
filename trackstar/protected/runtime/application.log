@@ -3067,3 +3067,25 @@ Stack trace:
 #16 E:\projects\yiiroot\framework\base\CApplication.php(135): CWebApplication->processRequest()
 #17 E:\projects\yiiroot\trackstar\index.php(13): CApplication->run()
 #18 {main} REQUEST_URI=/yiiroot/trackstar/index.php?r=user/update&id=1
+2018/12/10 05:38:14 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in E:\projects\yiiroot\framework\web\auth\CAccessControlFilter.php:153
+Stack trace:
+#0 E:\projects\yiiroot\framework\web\auth\CAccessControlFilter.php(115): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 E:\projects\yiiroot\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 E:\projects\yiiroot\framework\web\CController.php(1084): CFilter->filter(Object(CFilterChain))
+#3 E:\projects\yiiroot\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 E:\projects\yiiroot\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 E:\projects\yiiroot\framework\web\CController.php(283): CFilterChain->run()
+#6 E:\projects\yiiroot\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 E:\projects\yiiroot\framework\web\CWebApplication.php(324): CController->run('admin')
+#8 E:\projects\yiiroot\framework\web\CWebApplication.php(121): CWebApplication->runController('user/admin')
+#9 E:\projects\yiiroot\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#10 E:\projects\yiiroot\trackstar\index.php(13): CApplication->run()
+#11 {main} REQUEST_URI=/yiiroot/trackstar/index.php?r=user/admin
+2018/12/10 05:40:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "login".' in E:\projects\yiiroot\framework\web\CController.php:444
+Stack trace:
+#0 E:\projects\yiiroot\framework\web\CController.php(262): CController->missingAction('login')
+#1 E:\projects\yiiroot\framework\web\CWebApplication.php(324): CController->run('login')
+#2 E:\projects\yiiroot\framework\web\CWebApplication.php(121): CWebApplication->runController('user/login')
+#3 E:\projects\yiiroot\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#4 E:\projects\yiiroot\trackstar\index.php(13): CApplication->run()
+#5 {main} REQUEST_URI=/yiiroot/trackstar/index.php?r=user/login
