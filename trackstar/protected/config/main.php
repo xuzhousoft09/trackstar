@@ -28,7 +28,11 @@ return array(
 		),
 		
 	),
-
+      /* 'authManager'=>array(
+      		'class'=>'CDbAuthManager',
+      		'connection'=>'db',
+      		
+      ), */
 	// application components
 	'components'=>array(
 		'user'=>array(
@@ -46,6 +50,13 @@ return array(
 			),
 		),
 		*/
+		
+			'authManager'=>array(
+					'class'=>'CDbAuthManager',
+					'connectionID'=>'db',
+					
+			),
+			
 		'db'=>array(
 			//'connectionString' => 'sqlite:'.dirname(__FILE__).'/../data/testdrive.db',
 		    'connectionString' => 'mysql:host=127.0.0.1;dbname=trackstar_dev',
