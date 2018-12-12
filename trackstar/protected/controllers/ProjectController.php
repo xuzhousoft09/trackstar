@@ -190,4 +190,29 @@ class ProjectController extends Controller
 			Yii::app()->end();
 		}
 	}
+	public function actionAdduser()
+	{
+		$form=new ProjectUserForm;
+		$project=$this->loadModel();
+		if(isset($_POST['ProjectUserForm']))
+		{
+			$form->attribute=$_POST['ProjectUserForm'];
+			$form->project=$project;
+			if($form->validate())
+			{
+				Yii::app()->user->setFlash('success',$form->username."has been added to the project.");
+				$form=new ProjectUserForm;
+			}
+		}
+		$users=User::model()->findAll();
+		$usernames=array();
+		foreach($users as $user)
+		{
+			$usernames[]=$user->username;
+		}
+		$form->project=$project;
+		$this->render('adduser',array('model'=>$form,'usernames'=>$usernames));
+		
+			
+	}
 }
