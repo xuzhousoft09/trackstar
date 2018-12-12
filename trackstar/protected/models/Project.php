@@ -109,5 +109,32 @@ class Project extends TrackStarActiveRecord
 	 
 	    return $usersArray; 
 	}
-	
+	public function associateUserToRole($role, $user_id)
+	{
+	$sql = "INSERT INTO tbl_project_user_role (project_id, user_id,role) VALUES (:project_id, :user_id, :role)";
+	$command = Yii::app()->db->createCommand($sql);
+	$command->bindValue(":project_id", $this->id, PDO::PARAM_INT);
+	$command->bindValue(":user_id", $user_id, PDO::PARAM_INT);
+	$command->bindValue(":role", $role, PDO::PARAM_STR);
+	return $command->execute;
+	}
+	public function removeUserFromRole($role, $user_id)
+	{
+		$sql="DELETE FROM tbl_project_user_role WHERE project_id=:project_id AND user_id=:user_id AND role=:role";
+		$command=Yii::app()->db->createCommand($sql);
+		$command->blindValue(":project_id",$this->id, PDO::PARAM_INT);
+		$command->blindValue(":user_id", $user_id, PDO::RARAM_INT);
+		$command->blindValue(":role", $role, PDO::PARAM_STR);
+		return $command->execute();
+	}
+	public function isUserInRole($role)
+	{
+		$sql="SELECT role FROM tbl_project_user_role WHERE project_id=:project_id AND user_id=:user_id AND role=:role";
+		$command=Yii::app()->db->createCommand($sql);
+		$command->blindValue(":project_id",$this->id, PDO::PARAM_INT);
+		$command->blindValue(":user_id", Yii::app()->user->getId(),PDO::PARAM_INT );
+		$command->blindValue(":role",$role, PDO::PAPAM_STR);
+		return $command->execute()==1?true:false;
+		
+	}
 }
