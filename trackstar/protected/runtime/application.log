@@ -3891,3 +3891,39 @@ Stack trace:
 #11 E:\projects\yiiroot\framework\base\CApplication.php(135): CWebApplication->processRequest()
 #12 E:\projects\yiiroot\trackstar\index.php(13): CApplication->run()
 #13 {main} REQUEST_URI=/yiiroot/trackstar/index.php?r=issue
+2018/12/13 15:54:50 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in E:\projects\yiiroot\framework\web\auth\CAccessControlFilter.php:153
+Stack trace:
+#0 E:\projects\yiiroot\framework\web\auth\CAccessControlFilter.php(115): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 E:\projects\yiiroot\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 E:\projects\yiiroot\framework\web\CController.php(1084): CFilter->filter(Object(CFilterChain))
+#3 E:\projects\yiiroot\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 E:\projects\yiiroot\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 E:\projects\yiiroot\framework\web\CController.php(283): CFilterChain->run()
+#6 E:\projects\yiiroot\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 E:\projects\yiiroot\framework\web\CWebApplication.php(324): CController->run('admin')
+#8 E:\projects\yiiroot\framework\web\CWebApplication.php(121): CWebApplication->runController('user/admin')
+#9 E:\projects\yiiroot\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#10 E:\projects\yiiroot\trackstar\index.php(13): CApplication->run()
+#11 {main} REQUEST_URI=/yiiroot/trackstar/index.php?r=user/admin
+2018/12/13 16:00:15 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin".' in E:\projects\yiiroot\framework\web\CWebApplication.php:328
+Stack trace:
+#0 E:\projects\yiiroot\framework\web\CWebApplication.php(121): CWebApplication->runController('admin')
+#1 E:\projects\yiiroot\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#2 E:\projects\yiiroot\trackstar\index.php(13): CApplication->run()
+#3 {main} REQUEST_URI=/yiiroot/trackstar/index.php?r=admin
+2018/12/13 16:04:04 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "user".' in E:\projects\yiiroot\framework\web\CController.php:444
+Stack trace:
+#0 E:\projects\yiiroot\framework\web\CController.php(262): CController->missingAction('user')
+#1 E:\projects\yiiroot\framework\web\CWebApplication.php(324): CController->run('user')
+#2 E:\projects\yiiroot\framework\web\CWebApplication.php(121): CWebApplication->runController('site/user')
+#3 E:\projects\yiiroot\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#4 E:\projects\yiiroot\trackstar\index.php(13): CApplication->run()
+#5 {main} REQUEST_URI=/yiiroot/trackstar/index.php?r=site/user
+2018/12/13 16:05:16 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "user".' in E:\projects\yiiroot\framework\web\CController.php:444
+Stack trace:
+#0 E:\projects\yiiroot\framework\web\CController.php(262): CController->missingAction('user')
+#1 E:\projects\yiiroot\framework\web\CWebApplication.php(324): CController->run('user')
+#2 E:\projects\yiiroot\framework\web\CWebApplication.php(121): CWebApplication->runController('site/user')
+#3 E:\projects\yiiroot\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#4 E:\projects\yiiroot\trackstar\index.php(13): CApplication->run()
+#5 {main} REQUEST_URI=/yiiroot/trackstar/index.php?r=site/user
