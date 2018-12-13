@@ -149,12 +149,21 @@ class Project extends TrackStarActiveRecord
 		$command->bindValue(":user_id", $user->id, PDO::PARAM_INT);
 		return $command->execute();
 	}
-	public function isUserInProject($user)
+	/* public function isUserInProject($user)
 	{
 		$sql="SELECT user_id FROM tbl_project_user_assignment WHERE project_id=:project_id AND user_id=:user_id";
 		$command=Yii::app()->db->createCommand($sql);
+		var_dump($command);exit;
 		$command->blindValue(":project_id",$this->id,PDO::PARAM_INT);
 		$command->blindValue(":user_id",$user->id,PDO::PARAM_INT);
 		return $command->execute()==1 ? true:false;
+	} */
+	public function isUserInProject($user)
+	{
+		$sql = "SELECT user_id FROM tbl_project_user_assignment WHERE project_id=:projectId AND user_id=:userId";
+		$command = Yii::app()->db->createCommand($sql);
+		$command->bindValue(":projectId", $this->id, PDO::PARAM_INT);
+		$command->bindValue(":userId", $user->id, PDO::PARAM_INT);
+		return $command->execute()==1;
 	}
 }
