@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 2018-12-11 13:23:55
+-- Generation Time: 2018-12-13 14:39:08
 -- 服务器版本： 5.7.14
 -- PHP Version: 5.6.25
 
@@ -32,6 +32,14 @@ CREATE TABLE `authassignment` (
   `bizrule` text,
   `data` text
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- 转存表中的数据 `authassignment`
+--
+
+INSERT INTO `authassignment` (`itemname`, `userid`, `bizrule`, `data`) VALUES
+('reader', '8', 'return isset($params["project"]) &&$params["project"]->isUserInRole("reader");', 'N;'),
+('owner', '11', 'return isset($params["project"]) &&$params["project"]->isUserInRole("owner");', 'N;');
 
 -- --------------------------------------------------------
 
@@ -154,7 +162,7 @@ CREATE TABLE `tbl_project` (
 --
 
 INSERT INTO `tbl_project` (`id`, `name`, `description`, `create_time`, `create_user_id`, `update_time`, `update_user_id`) VALUES
-(1, 'project1', NULL, NULL, NULL, NULL, NULL);
+(1, 'project1', 'project1', NULL, NULL, '2018-12-13 16:02:23', 10);
 
 -- --------------------------------------------------------
 
@@ -177,7 +185,31 @@ CREATE TABLE `tbl_project_user_assignment` (
 
 INSERT INTO `tbl_project_user_assignment` (`project_id`, `user_id`, `create_time`, `create_user_id`, `update_time`, `update_user_id`) VALUES
 (1, 1, NULL, NULL, NULL, NULL),
-(1, 2, NULL, NULL, NULL, NULL);
+(1, 2, NULL, NULL, NULL, NULL),
+(1, 5, NULL, NULL, NULL, NULL),
+(1, 7, NULL, NULL, NULL, NULL),
+(1, 8, NULL, NULL, NULL, NULL),
+(1, 11, NULL, NULL, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `tbl_project_user_role`
+--
+
+CREATE TABLE `tbl_project_user_role` (
+  `project_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `role` varchar(64) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- 转存表中的数据 `tbl_project_user_role`
+--
+
+INSERT INTO `tbl_project_user_role` (`project_id`, `user_id`, `role`) VALUES
+(1, 8, 'reader'),
+(1, 11, 'owner');
 
 -- --------------------------------------------------------
 
@@ -202,11 +234,14 @@ CREATE TABLE `tbl_user` (
 --
 
 INSERT INTO `tbl_user` (`id`, `email`, `username`, `password`, `last_login_time`, `create_time`, `create_user_id`, `update_time`, `update_user_id`) VALUES
-(1, 'test1@notanaddress.com', 'Test_User_One', '5a105e8b9d40e1329780d62ea2265d8a', '2018-12-11 16:57:45', NULL, NULL, '2018-12-09 23:11:14', 0),
+(1, 'test1@notanaddress.com', 'Test_User_One', '5a105e8b9d40e1329780d62ea2265d8a', '2018-12-13 21:24:33', NULL, NULL, '2018-12-09 23:11:14', 0),
 (2, 'test2@notanaddress.com', 'Test_User_Two', 'ad0234829205b9033196ba818f7a872b', NULL, NULL, NULL, NULL, NULL),
-(5, '7777@123.com', '777', 'f1c1592588411002af340cbaedd6fc33', '2018-12-11 17:13:06', '2018-12-09 14:00:33', 0, '2018-12-09 23:08:30', 0),
+(5, '7777@123.com', '777', 'f1c1592588411002af340cbaedd6fc33', '2018-12-12 22:01:26', '2018-12-09 14:00:33', 0, '2018-12-09 23:08:30', 0),
 (7, '999@1923.com', '999', 'b706835de79a2b4e80506f582af3676a', NULL, '2018-12-10 10:14:50', 0, '2018-12-10 10:16:24', 0),
-(8, '123@123.com', '000', 'c6f057b86584942e415435ffb1fa93d4', NULL, '2018-12-10 10:40:50', 0, '2018-12-10 10:40:50', 0);
+(8, '123@123.com', '000', 'c6f057b86584942e415435ffb1fa93d4', '2018-12-13 15:54:44', '2018-12-10 10:40:50', 0, '2018-12-10 10:40:50', 0),
+(9, '123@1238.com', 'Test_for_project1', 'e10adc3949ba59abbe56e057f20f883e', NULL, '2018-12-13 15:15:03', 1, '2018-12-13 15:15:03', 1),
+(10, '123@12388888.com', '1010', '1e48c4420b7073bc11916c6c1de226bb', '2018-12-13 16:02:02', '2018-12-13 16:00:54', 1, '2018-12-13 16:00:54', 1),
+(11, '7777@1288888888883.com', 'project1_owner', '628efa8405a560c875b75f35058c49ba', '2018-12-13 17:31:58', '2018-12-13 16:16:37', 1, '2018-12-13 16:16:37', 1);
 
 --
 -- Indexes for dumped tables
@@ -254,6 +289,14 @@ ALTER TABLE `tbl_project_user_assignment`
   ADD KEY `FK_user_project` (`user_id`);
 
 --
+-- Indexes for table `tbl_project_user_role`
+--
+ALTER TABLE `tbl_project_user_role`
+  ADD PRIMARY KEY (`project_id`,`user_id`,`role`),
+  ADD KEY `user_id` (`user_id`),
+  ADD KEY `role` (`role`);
+
+--
 -- Indexes for table `tbl_user`
 --
 ALTER TABLE `tbl_user`
@@ -277,7 +320,7 @@ ALTER TABLE `tbl_project`
 -- 使用表AUTO_INCREMENT `tbl_user`
 --
 ALTER TABLE `tbl_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- 限制导出的表
 --
