@@ -1,6 +1,9 @@
 <?php
 $this->pageTitle=Yii::app()->name.' - Add User To Project';
-$this->breadcrumbs=array($model->project->name=>array('view','id'=>$model->project->id),'Add User');
+ $this->breadcrumbs=array($model->project->name=>array('view','id'=>$model->project->id),'Add User'); 
+ 
+/*  var_dump($model); */
+
 $this->menu=array(array('label'=>'Back To Project','url'=>array('view','id'=>$model->project->id)),);
 ?>
 

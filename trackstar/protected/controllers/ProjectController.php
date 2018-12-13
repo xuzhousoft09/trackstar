@@ -191,29 +191,36 @@ class ProjectController extends Controller
 			Yii::app()->end();
 		}
 	}
-	public function actionAdduser()
+
+	public function actionAdduser($id)
 	{
 		$form=new ProjectUserForm;
-		$project=$this->loadModel();
+		/* var_dump($form); 
+		exit;  successfully created a object*/
+		$project = $this->loadModel($id);
+		
+		// collect user input data
 		if(isset($_POST['ProjectUserForm']))
 		{
-			$form->attribute=$_POST['ProjectUserForm'];
-			$form->project=$project;
+			$form->attributes=$_POST['ProjectUserForm'];
+			$form->project = $project;
+			// validate user input and set a sucessfull flassh message if valid
 			if($form->validate())
 			{
-				Yii::app()->user->setFlash('success',$form->username."has been added to the project.");
+				Yii::app()->user->setFlash('success',$form->username .
+						" has been added to the project." );
 				$form=new ProjectUserForm;
 			}
 		}
-		$users=User::model()->findAll();
+		// display the add user form
+		$users = User::model()->findAll();
 		$usernames=array();
 		foreach($users as $user)
 		{
 			$usernames[]=$user->username;
 		}
-		$form->project=$project;
-		$this->render('adduser',array('model'=>$form,'usernames'=>$usernames));
-		
-			
+		$form->project = $project;
+		$this->render('adduser',array('model'=>$form,
+				'usernames'=>$usernames));
 	}
 }

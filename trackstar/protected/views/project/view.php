@@ -11,6 +11,7 @@ $this->menu=array(
 	array('label'=>'Delete Project', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
 	array('label'=>'Manage Project', 'url'=>array('admin')),
     array('label'=>'Create Issue', 'url'=>array('issue/create','pid'=>$model->id)),
+		array('label'=>'Add User To Project', 'url'=>array('adduser','id'=>$model->id)),
 );
 ?>
 
@@ -28,6 +29,12 @@ $this->menu=array(
 		'update_user_id',
 	),
 )); ?>
+    
+    
+	<?php /* echo CHtml::link('Add User To Project',array('adduser','id'=>$model->id)); */ ?>
+	
+	<?php /* var_dump($model); */ ?>
+	<br/>
 
 <br>
 <h1>Project Issues</h1>
