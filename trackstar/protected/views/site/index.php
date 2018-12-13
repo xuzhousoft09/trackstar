@@ -8,7 +8,7 @@ You last logged in on <?php echo date( 'l, F d, Y, g:i a',
 Yii::app()->user->lastLoginTime ); ?>.
 </p>
 
-<b><?php echo "<a href= '?r=project'>System Entrance</a>";?></b>
+<?php /*  echo "<a href= '?r=project'>System Entrance</a>"; */?></b>
 <?php endif;?>
 
 <!--  

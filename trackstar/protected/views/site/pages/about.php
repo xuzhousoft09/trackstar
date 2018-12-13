@@ -5,8 +5,7 @@ $this->breadcrumbs=array(
 );
 ?>
 <h1>About</h1>
-
+<br/>
 <p>Created by George Lu.</p>
 <p>You may change the content of this page
-by</p> 
-updating the file <tt><?php echo __FILE__; ?></tt>.</p>
+by updating the file <tt><?php echo __FILE__; ?></tt>.</p>

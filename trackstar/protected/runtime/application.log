@@ -3858,3 +3858,36 @@ Stack trace:
 REQUEST_URI=/yiiroot/trackstar/index.php?r=site/contact
 in E:\projects\yiiroot\trackstar\protected\controllers\SiteController.php (63)
 in E:\projects\yiiroot\trackstar\index.php (13)
+2018/12/13 14:25:17 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "project".' in E:\projects\yiiroot\framework\web\CController.php:444
+Stack trace:
+#0 E:\projects\yiiroot\framework\web\CController.php(262): CController->missingAction('project')
+#1 E:\projects\yiiroot\framework\web\CWebApplication.php(324): CController->run('project')
+#2 E:\projects\yiiroot\framework\web\CWebApplication.php(121): CWebApplication->runController('site/project')
+#3 E:\projects\yiiroot\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#4 E:\projects\yiiroot\trackstar\index.php(13): CApplication->run()
+#5 {main} REQUEST_URI=/yiiroot/trackstar/index.php?r=site/project
+2018/12/13 14:25:53 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "project".' in E:\projects\yiiroot\framework\web\CController.php:444
+Stack trace:
+#0 E:\projects\yiiroot\framework\web\CController.php(262): CController->missingAction('project')
+#1 E:\projects\yiiroot\framework\web\CWebApplication.php(324): CController->run('project')
+#2 E:\projects\yiiroot\framework\web\CWebApplication.php(121): CWebApplication->runController('site/project')
+#3 E:\projects\yiiroot\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#4 E:\projects\yiiroot\trackstar\index.php(13): CApplication->run()
+#5 {main} REQUEST_URI=/yiiroot/trackstar/index.php?r=site/project
+2018/12/13 14:28:36 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested project does not
+exist.' in E:\projects\yiiroot\trackstar\protected\controllers\IssueController.php:25
+Stack trace:
+#0 E:\projects\yiiroot\trackstar\protected\controllers\IssueController.php(218): IssueController->loadProject(NULL)
+#1 E:\projects\yiiroot\framework\web\filters\CInlineFilter.php(59): IssueController->filterProjectContext(Object(CFilterChain))
+#2 E:\projects\yiiroot\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#3 E:\projects\yiiroot\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#4 E:\projects\yiiroot\framework\web\CController.php(1084): CFilter->filter(Object(CFilterChain))
+#5 E:\projects\yiiroot\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#6 E:\projects\yiiroot\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#7 E:\projects\yiiroot\framework\web\CController.php(283): CFilterChain->run()
+#8 E:\projects\yiiroot\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#9 E:\projects\yiiroot\framework\web\CWebApplication.php(324): CController->run('')
+#10 E:\projects\yiiroot\framework\web\CWebApplication.php(121): CWebApplication->runController('issue')
+#11 E:\projects\yiiroot\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#12 E:\projects\yiiroot\trackstar\index.php(13): CApplication->run()
+#13 {main} REQUEST_URI=/yiiroot/trackstar/index.php?r=issue
