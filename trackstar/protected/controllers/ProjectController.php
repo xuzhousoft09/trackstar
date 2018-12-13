@@ -194,11 +194,14 @@ class ProjectController extends Controller
 
 	public function actionAdduser($id)
 	{
+		$project = $this->loadModel($id);
+		if(!Yii::app()->user->checkAccess('createUser',array('project'=>$project)))
+		{
+			throw new CHttpException(403,'You are not authorized to per-form this action');
+		}
 		$form=new ProjectUserForm;
 		/* var_dump($form); 
-		exit;  successfully created a object*/
-		$project = $this->loadModel($id);
-		
+		exit;  successfully created a object*/		
 		// collect user input data
 		if(isset($_POST['ProjectUserForm']))
 		{

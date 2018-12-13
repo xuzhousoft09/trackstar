@@ -116,7 +116,7 @@ class Project extends TrackStarActiveRecord
 	$command->bindValue(":project_id", $this->id, PDO::PARAM_INT);
 	$command->bindValue(":user_id", $user_id, PDO::PARAM_INT);
 	$command->bindValue(":role", $role, PDO::PARAM_STR);
-	return $command->execute;
+	return $command->execute();
 	}
 	public function removeUserFromRole($role, $user_id)
 	{
@@ -127,16 +127,27 @@ class Project extends TrackStarActiveRecord
 		$command->blindValue(":role", $role, PDO::PARAM_STR);
 		return $command->execute();
 	}
-	public function isUserInRole($role)
+/* 	public function isUserInRole($role)
 	{
 		$sql="SELECT role FROM tbl_project_user_role WHERE project_id=:project_id AND user_id=:user_id AND role=:role";
 		$command=Yii::app()->db->createCommand($sql);
-		$command->blindValue(":project_id",$this->id, PDO::PARAM_INT);
-		$command->blindValue(":user_id", Yii::app()->user->getId(),PDO::PARAM_INT );
-		$command->blindValue(":role",$role, PDO::PAPAM_STR);
+		
+		$command->bindValue(":project_id",$this->id, PDO::PARAM_INT);
+		$command->bindValue(":user_id", Yii::app()->user->getId(),PDO::PARAM_INT );
+		$command->bindValue(":role",$role, PDO::PAPAM_STR);
 		return $command->execute()==1?true:false;
 		
-	}
+	} */
+		public function isUserInRole($role)
+		{
+			$sql = "SELECT role FROM tbl_project_user_role WHERE project_id=:projectId AND user_id=:userId AND role=:role";
+			$command = Yii::app()->db->createCommand($sql);
+			$command->bindValue(":projectId", $this->id, PDO::PARAM_INT);
+			$command->bindValue(":userId", Yii::app()->user->getId(),PDO::PARAM_INT);
+			$command->bindValue(":role", $role, PDO::PARAM_STR);
+			return $command->execute()==1 ? true : false;
+		}
+		
 	public static function getUserRoleOptions()
 	{
 		return CHtml::listData(Yii::app()->authManager->getRoles(),'name','name');
@@ -160,7 +171,7 @@ class Project extends TrackStarActiveRecord
 	} */
 	public function isUserInProject($user)
 	{
-		$sql = "SELECT user_id FROM tbl_project_user_assignment WHERE project_id=:projectId AND user_id=:userId";
+		$sql ="SELECT user_id FROM tbl_project_user_assignment WHERE project_id=:projectId AND user_id=:userId";
 		$command = Yii::app()->db->createCommand($sql);
 		$command->bindValue(":projectId", $this->id, PDO::PARAM_INT);
 		$command->bindValue(":userId", $user->id, PDO::PARAM_INT);
