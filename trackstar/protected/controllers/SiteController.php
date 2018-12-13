@@ -1,5 +1,7 @@
 <?php
 
+
+
 class SiteController extends Controller
 {
 	/**
@@ -64,8 +66,8 @@ class SiteController extends Controller
 			}
 		}
 		$this->render('contact',array('model'=>$model));
-	}
-
+	} 
+  
 	/**
 	 * Displays the login page
 	 */

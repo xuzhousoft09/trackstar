@@ -146,6 +146,7 @@ class ProjectController extends Controller
 	public function actionIndex()
 	{
 		$dataProvider=new CActiveDataProvider('Project');
+	/* 	var_dump($this); */
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
