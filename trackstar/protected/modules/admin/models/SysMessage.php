@@ -11,7 +11,7 @@
  * @property string $update_time
  * @property integer $update_user_id
  */
-class SysMessage extends CActiveRecord
+class SysMessage extends TrackStarActiveRecord
 {
 	/**
 	 * Returns the static model of the specified AR class.
@@ -39,8 +39,8 @@ class SysMessage extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('message', 'required'),
-			array('create_user_id, update_user_id', 'numerical', 'integerOnly'=>true),
-			array('create_time, update_time', 'safe'),
+			/* array('create_user_id, update_user_id', 'numerical', 'integerOnly'=>true), */
+			/* array('create_time, update_time', 'safe'), */
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('id, message, create_time, create_user_id, update_time, update_user_id', 'safe', 'on'=>'search'),

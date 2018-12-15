@@ -4059,3 +4059,31 @@ Stack trace:
 in E:\projects\yiiroot\framework\gii\generators\model\ModelCode.php (139)
 in E:\projects\yiiroot\framework\gii\generators\model\ModelCode.php (115)
 in E:\projects\yiiroot\framework\gii\CCodeGenerator.php (155)
+2018/12/15 10:05:27 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in E:\projects\yiiroot\trackstar\protected\modules\admin\AdminModule.php:26
+Stack trace:
+#0 E:\projects\yiiroot\framework\web\CController.php(255): AdminModule->beforeControllerAction(Object(SysMessageController), Object(CInlineAction))
+#1 E:\projects\yiiroot\framework\web\CWebApplication.php(324): CController->run('index')
+#2 E:\projects\yiiroot\framework\web\CWebApplication.php(121): CWebApplication->runController('admin/sysMessag...')
+#3 E:\projects\yiiroot\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#4 E:\projects\yiiroot\trackstar\index.php(13): CApplication->run()
+#5 {main} REQUEST_URI=/yiiroot/trackstar/index.php?r=admin/sysMessage/index
+2018/12/15 10:05:32 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in E:\projects\yiiroot\trackstar\protected\modules\admin\AdminModule.php:26
+Stack trace:
+#0 E:\projects\yiiroot\framework\web\CController.php(255): AdminModule->beforeControllerAction(Object(SysMessageController), Object(CInlineAction))
+#1 E:\projects\yiiroot\framework\web\CWebApplication.php(324): CController->run('index')
+#2 E:\projects\yiiroot\framework\web\CWebApplication.php(121): CWebApplication->runController('admin/sysMessag...')
+#3 E:\projects\yiiroot\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#4 E:\projects\yiiroot\trackstar\index.php(13): CApplication->run()
+#5 {main} REQUEST_URI=/yiiroot/trackstar/index.php?r=admin/sysMessage/index
+2018/12/15 10:06:19 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin/user/index".' in E:\projects\yiiroot\framework\web\CWebApplication.php:328
+Stack trace:
+#0 E:\projects\yiiroot\framework\web\CWebApplication.php(121): CWebApplication->runController('admin/user/inde...')
+#1 E:\projects\yiiroot\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#2 E:\projects\yiiroot\trackstar\index.php(13): CApplication->run()
+#3 {main} REQUEST_URI=/yiiroot/trackstar/index.php?r=admin/user/index
+2018/12/15 10:06:24 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin/user/index".' in E:\projects\yiiroot\framework\web\CWebApplication.php:328
+Stack trace:
+#0 E:\projects\yiiroot\framework\web\CWebApplication.php(121): CWebApplication->runController('admin/user/inde...')
+#1 E:\projects\yiiroot\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#2 E:\projects\yiiroot\trackstar\index.php(13): CApplication->run()
+#3 {main} REQUEST_URI=/yiiroot/trackstar/index.php?r=admin/user/index
