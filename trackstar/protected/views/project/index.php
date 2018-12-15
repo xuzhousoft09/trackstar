@@ -9,6 +9,15 @@ $this->menu=array(
 );
 ?>
 
+<?php if($sysMessage != null):?>
+<div class="sys-message">
+<?php echo $sysMessage; ?>
+</div>
+<?php endif; ?>
+
+<br/>
+
+
 <h1>Projects</h1>
 
 <?php $this->widget('zii.widgets.CListView', array(

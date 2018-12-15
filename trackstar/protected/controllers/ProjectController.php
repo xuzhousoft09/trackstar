@@ -147,21 +147,20 @@ class ProjectController extends Controller
 	{
 		$dataProvider=new CActiveDataProvider('Project');
 	/* 	var_dump($this); */
-		$this->render('index',array(
+		/* $this->render('index',array(
 			'dataProvider'=>$dataProvider,
-		));
+		)); */
 		
-		$sysMessage = SysMessage::getLatest();
-		if($sysMessage !== null)
-			$message = $sysMessage->message;
-			else
-				$message = null;
-		
-		
-				$this->render('index',array(
-						'dataProvider'=>$dataProvider,
-						'sysMessage'=>$message,
-				));
+	
+	$sysMessage = SysMessage::model()->find(array('order'=>'t.update_time DESC',));
+	if($sysMessage != null)
+	$message = $sysMessage->message;
+	else
+	$message = null;
+	$this->render('index',array(
+	'dataProvider'=>$dataProvider,
+	'sysMessage'=>$message,
+	));
 	}
 
 	/**
