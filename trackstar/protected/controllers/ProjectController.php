@@ -150,6 +150,18 @@ class ProjectController extends Controller
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
+		
+		$sysMessage = SysMessage::getLatest();
+		if($sysMessage !== null)
+			$message = $sysMessage->message;
+			else
+				$message = null;
+		
+		
+				$this->render('index',array(
+						'dataProvider'=>$dataProvider,
+						'sysMessage'=>$message,
+				));
 	}
 
 	/**
