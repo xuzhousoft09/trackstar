@@ -13,7 +13,8 @@ class AdminModule extends CWebModule
 			'admin.components.*',
 		));
 		
-		$this->layout='main';
+		
+		$this->layout = 'main';
 	}
 
 	public function beforeControllerAction($controller, $action)

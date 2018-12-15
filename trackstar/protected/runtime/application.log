@@ -4001,3 +4001,11 @@ Stack trace:
 in E:\projects\yiiroot\framework\gii\generators\model\ModelCode.php (139)
 in E:\projects\yiiroot\framework\gii\generators\model\ModelCode.php (115)
 in E:\projects\yiiroot\framework\gii\CCodeGenerator.php (155)
+2018/12/15 07:52:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "index.php".' in E:\projects\yiiroot\framework\web\CController.php:444
+Stack trace:
+#0 E:\projects\yiiroot\framework\web\CController.php(262): CController->missingAction('index.php')
+#1 E:\projects\yiiroot\framework\web\CWebApplication.php(324): CController->run('index.php')
+#2 E:\projects\yiiroot\framework\web\CWebApplication.php(121): CWebApplication->runController('admin/default/i...')
+#3 E:\projects\yiiroot\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#4 E:\projects\yiiroot\trackstar\index.php(13): CApplication->run()
+#5 {main} REQUEST_URI=/yiiroot/trackstar/index.php?r=admin/default/index.php
