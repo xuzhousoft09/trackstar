@@ -490,3 +490,33 @@ Stack trace:
 #3 E:\projects\yiiroot\framework\base\CApplication.php(135): CWebApplication->processRequest()
 #4 E:\projects\yiiroot\trackstar\index.php(13): CApplication->run()
 #5 {main} REQUEST_URI=/yiiroot/trackstar/index.php?r=admin/sysMessage/index
+2018/12/15 12:52:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin/user/index".' in E:\projects\yiiroot\framework\web\CWebApplication.php:328
+Stack trace:
+#0 E:\projects\yiiroot\framework\web\CWebApplication.php(121): CWebApplication->runController('admin/user/inde...')
+#1 E:\projects\yiiroot\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#2 E:\projects\yiiroot\trackstar\index.php(13): CApplication->run()
+#3 {main} REQUEST_URI=/yiiroot/trackstar/index.php?r=admin/user/index
+2018/12/15 12:52:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin/user/index".' in E:\projects\yiiroot\framework\web\CWebApplication.php:328
+Stack trace:
+#0 E:\projects\yiiroot\framework\web\CWebApplication.php(121): CWebApplication->runController('admin/user/inde...')
+#1 E:\projects\yiiroot\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#2 E:\projects\yiiroot\trackstar\index.php(13): CApplication->run()
+#3 {main} REQUEST_URI=/yiiroot/trackstar/index.php?r=admin/user/index
+2018/12/15 12:53:44 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin/user/index".' in E:\projects\yiiroot\framework\web\CWebApplication.php:328
+Stack trace:
+#0 E:\projects\yiiroot\framework\web\CWebApplication.php(121): CWebApplication->runController('admin/user/inde...')
+#1 E:\projects\yiiroot\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#2 E:\projects\yiiroot\trackstar\index.php(13): CApplication->run()
+#3 {main} REQUEST_URI=/yiiroot/trackstar/index.php?r=admin/user/index
+2018/12/15 12:56:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin/project/index".' in E:\projects\yiiroot\framework\web\CWebApplication.php:328
+Stack trace:
+#0 E:\projects\yiiroot\framework\web\CWebApplication.php(121): CWebApplication->runController('admin/project/i...')
+#1 E:\projects\yiiroot\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#2 E:\projects\yiiroot\trackstar\index.php(13): CApplication->run()
+#3 {main} REQUEST_URI=/yiiroot/trackstar/index.php?r=admin/project/index
+2018/12/15 13:00:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin/user/index".' in E:\projects\yiiroot\framework\web\CWebApplication.php:328
+Stack trace:
+#0 E:\projects\yiiroot\framework\web\CWebApplication.php(121): CWebApplication->runController('admin/user/inde...')
+#1 E:\projects\yiiroot\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#2 E:\projects\yiiroot\trackstar\index.php(13): CApplication->run()
+#3 {main} REQUEST_URI=/yiiroot/trackstar/index.php?r=admin/user/index
