@@ -4055,3 +4055,7 @@ Stack trace:
 #1 E:\projects\yiiroot\framework\base\CApplication.php(135): CWebApplication->processRequest()
 #2 E:\projects\yiiroot\trackstar\index.php(13): CApplication->run()
 #3 {main} REQUEST_URI=/yiiroot/trackstar/index.php?r=admin/user/index
+2018/12/15 09:21:34 [error] [system.db.CDbCommand] Error in querying SQL: SHOW COLUMNS FROM `sys_message`
+in E:\projects\yiiroot\framework\gii\generators\model\ModelCode.php (139)
+in E:\projects\yiiroot\framework\gii\generators\model\ModelCode.php (115)
+in E:\projects\yiiroot\framework\gii\CCodeGenerator.php (155)
