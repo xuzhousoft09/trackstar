@@ -26,7 +26,7 @@ return array(
 			'class'=>'system.gii.GiiModule',
 			'password'=>'123456',
 		),
-		
+		'admin'
 	),
       /* 'authManager'=>array(
       		'class'=>'CDbAuthManager',
