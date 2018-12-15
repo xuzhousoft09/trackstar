@@ -11,7 +11,7 @@ $this->menu=array(
 
 <?php if($sysMessage != null):?>
 <div class="sys-message">
-<?php echo $sysMessage; ?>
+<?php echo 'Broadcast:'."&nbsp<u>$sysMessage</u>" ;?>
 </div>
 <?php endif; ?>
 
