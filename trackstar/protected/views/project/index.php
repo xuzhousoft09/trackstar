@@ -11,9 +11,13 @@ $this->menu=array(
 
 <?php if($sysMessage != null):?>
 <div class="sys-message">
-<?php echo 'Broadcast:'."&nbsp<u>$sysMessage</u>" ;?>
+<?php echo 'Recent message:'."&nbsp$sysMessage" ;?>
 </div>
-<?php endif; ?>
+<?php Yii::app()->clientScript->registerScript('fadeAndHideEffect','$(".sys-message").animate({opacity: 1.0}, 10000).fadeOut("slow");'
+); endif; ?>
+
+
+
 
 <br/>
 
