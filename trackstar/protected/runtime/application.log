@@ -3997,3 +3997,7 @@ Stack trace:
 #9 E:\projects\yiiroot\framework\base\CApplication.php(135): CWebApplication->processRequest()
 #10 E:\projects\yiiroot\trackstar\index.php(13): CApplication->run()
 #11 {main} REQUEST_URI=/yiiroot/trackstar/index.php?r=project/admin
+2018/12/15 07:34:49 [error] [system.db.CDbCommand] Error in querying SQL: SHOW COLUMNS FROM `admin`
+in E:\projects\yiiroot\framework\gii\generators\model\ModelCode.php (139)
+in E:\projects\yiiroot\framework\gii\generators\model\ModelCode.php (115)
+in E:\projects\yiiroot\framework\gii\CCodeGenerator.php (155)
