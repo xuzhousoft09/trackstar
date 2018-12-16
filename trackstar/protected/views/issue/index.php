@@ -3,14 +3,11 @@ $this->breadcrumbs=array(
 	'Issues',
 );
 
-/* $this->menu=array(
-	array('label'=>'Create Issue', 'url'=>array('create')),
-	array('label'=>'Manage Issue', 'url'=>array('admin')),
-); */
 
 $this->menu=array(
     array('label'=>'Create Issue', 'url'=>array('create')),
-    array('label'=>'Manage Issue', 'url'=>array('admin')),
+    array('label'=>'Manage Issue', 'url'=>array('admin'),'visible'=>Yii::app()->user->checkAccess("admin")),
+    
 );
 
 ?>

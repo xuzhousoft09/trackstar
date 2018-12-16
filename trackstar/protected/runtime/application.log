@@ -679,3 +679,167 @@ Stack trace:
 #18 E:\projects\yiiroot\framework\base\CApplication.php(135): CWebApplication->processRequest()
 #19 E:\projects\yiiroot\trackstar\index.php(13): CApplication->run()
 #20 {main} REQUEST_URI=/yiiroot/trackstar/index.php?r=project/index
+2018/12/15 14:15:08 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in E:\projects\yiiroot\framework\web\auth\CAccessControlFilter.php:153
+Stack trace:
+#0 E:\projects\yiiroot\framework\web\auth\CAccessControlFilter.php(115): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 E:\projects\yiiroot\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 E:\projects\yiiroot\framework\web\CController.php(1084): CFilter->filter(Object(CFilterChain))
+#3 E:\projects\yiiroot\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 E:\projects\yiiroot\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 E:\projects\yiiroot\framework\web\CController.php(283): CFilterChain->run()
+#6 E:\projects\yiiroot\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 E:\projects\yiiroot\framework\web\CWebApplication.php(324): CController->run('admin')
+#8 E:\projects\yiiroot\framework\web\CWebApplication.php(121): CWebApplication->runController('issue/admin')
+#9 E:\projects\yiiroot\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#10 E:\projects\yiiroot\trackstar\index.php(13): CApplication->run()
+#11 {main} REQUEST_URI=/yiiroot/trackstar/index.php?r=issue/admin&pid=1
+2018/12/15 14:16:09 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in E:\projects\yiiroot\trackstar\protected\modules\admin\AdminModule.php:26
+Stack trace:
+#0 E:\projects\yiiroot\framework\web\CController.php(255): AdminModule->beforeControllerAction(Object(SysMessageController), Object(CInlineAction))
+#1 E:\projects\yiiroot\framework\web\CWebApplication.php(324): CController->run('index')
+#2 E:\projects\yiiroot\framework\web\CWebApplication.php(121): CWebApplication->runController('admin/sysMessag...')
+#3 E:\projects\yiiroot\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#4 E:\projects\yiiroot\trackstar\index.php(13): CApplication->run()
+#5 {main} REQUEST_URI=/yiiroot/trackstar/index.php?r=admin/sysMessage/index
+2018/12/15 14:17:52 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in E:\projects\yiiroot\framework\web\auth\CAccessControlFilter.php:153
+Stack trace:
+#0 E:\projects\yiiroot\framework\web\auth\CAccessControlFilter.php(115): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 E:\projects\yiiroot\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 E:\projects\yiiroot\framework\web\CController.php(1084): CFilter->filter(Object(CFilterChain))
+#3 E:\projects\yiiroot\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 E:\projects\yiiroot\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 E:\projects\yiiroot\framework\web\CController.php(283): CFilterChain->run()
+#6 E:\projects\yiiroot\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 E:\projects\yiiroot\framework\web\CWebApplication.php(324): CController->run('admin')
+#8 E:\projects\yiiroot\framework\web\CWebApplication.php(121): CWebApplication->runController('issue/admin')
+#9 E:\projects\yiiroot\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#10 E:\projects\yiiroot\trackstar\index.php(13): CApplication->run()
+#11 {main} REQUEST_URI=/yiiroot/trackstar/index.php?r=issue/admin&pid=1
+2018/12/15 14:21:42 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in E:\projects\yiiroot\framework\web\auth\CAccessControlFilter.php:153
+Stack trace:
+#0 E:\projects\yiiroot\framework\web\auth\CAccessControlFilter.php(115): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 E:\projects\yiiroot\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 E:\projects\yiiroot\framework\web\CController.php(1084): CFilter->filter(Object(CFilterChain))
+#3 E:\projects\yiiroot\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 E:\projects\yiiroot\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 E:\projects\yiiroot\framework\web\CController.php(283): CFilterChain->run()
+#6 E:\projects\yiiroot\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 E:\projects\yiiroot\framework\web\CWebApplication.php(324): CController->run('admin')
+#8 E:\projects\yiiroot\framework\web\CWebApplication.php(121): CWebApplication->runController('issue/admin')
+#9 E:\projects\yiiroot\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#10 E:\projects\yiiroot\trackstar\index.php(13): CApplication->run()
+#11 {main} REQUEST_URI=/yiiroot/trackstar/index.php?r=issue/admin&pid=1
+2018/12/15 14:23:54 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in E:\projects\yiiroot\framework\web\auth\CAccessControlFilter.php:153
+Stack trace:
+#0 E:\projects\yiiroot\framework\web\auth\CAccessControlFilter.php(115): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 E:\projects\yiiroot\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 E:\projects\yiiroot\framework\web\CController.php(1084): CFilter->filter(Object(CFilterChain))
+#3 E:\projects\yiiroot\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 E:\projects\yiiroot\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 E:\projects\yiiroot\framework\web\CController.php(283): CFilterChain->run()
+#6 E:\projects\yiiroot\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 E:\projects\yiiroot\framework\web\CWebApplication.php(324): CController->run('admin')
+#8 E:\projects\yiiroot\framework\web\CWebApplication.php(121): CWebApplication->runController('issue/admin')
+#9 E:\projects\yiiroot\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#10 E:\projects\yiiroot\trackstar\index.php(13): CApplication->run()
+#11 {main} REQUEST_URI=/yiiroot/trackstar/index.php?r=issue/admin&pid=1
+2018/12/15 14:23:56 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in E:\projects\yiiroot\trackstar\protected\modules\admin\AdminModule.php:26
+Stack trace:
+#0 E:\projects\yiiroot\framework\web\CController.php(255): AdminModule->beforeControllerAction(Object(SysMessageController), Object(CInlineAction))
+#1 E:\projects\yiiroot\framework\web\CWebApplication.php(324): CController->run('index')
+#2 E:\projects\yiiroot\framework\web\CWebApplication.php(121): CWebApplication->runController('admin/sysMessag...')
+#3 E:\projects\yiiroot\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#4 E:\projects\yiiroot\trackstar\index.php(13): CApplication->run()
+#5 {main} REQUEST_URI=/yiiroot/trackstar/index.php?r=admin/sysMessage/index
+2018/12/15 14:24:38 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in E:\projects\yiiroot\framework\web\auth\CAccessControlFilter.php:153
+Stack trace:
+#0 E:\projects\yiiroot\framework\web\auth\CAccessControlFilter.php(115): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 E:\projects\yiiroot\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 E:\projects\yiiroot\framework\web\CController.php(1084): CFilter->filter(Object(CFilterChain))
+#3 E:\projects\yiiroot\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 E:\projects\yiiroot\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 E:\projects\yiiroot\framework\web\CController.php(283): CFilterChain->run()
+#6 E:\projects\yiiroot\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 E:\projects\yiiroot\framework\web\CWebApplication.php(324): CController->run('admin')
+#8 E:\projects\yiiroot\framework\web\CWebApplication.php(121): CWebApplication->runController('issue/admin')
+#9 E:\projects\yiiroot\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#10 E:\projects\yiiroot\trackstar\index.php(13): CApplication->run()
+#11 {main} REQUEST_URI=/yiiroot/trackstar/index.php?r=issue/admin&pid=1&visible=
+2018/12/16 03:24:17 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in E:\projects\yiiroot\framework\web\auth\CAccessControlFilter.php:153
+Stack trace:
+#0 E:\projects\yiiroot\framework\web\auth\CAccessControlFilter.php(115): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 E:\projects\yiiroot\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 E:\projects\yiiroot\framework\web\CController.php(1084): CFilter->filter(Object(CFilterChain))
+#3 E:\projects\yiiroot\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 E:\projects\yiiroot\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 E:\projects\yiiroot\framework\web\CController.php(283): CFilterChain->run()
+#6 E:\projects\yiiroot\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 E:\projects\yiiroot\framework\web\CWebApplication.php(324): CController->run('admin')
+#8 E:\projects\yiiroot\framework\web\CWebApplication.php(121): CWebApplication->runController('issue/admin')
+#9 E:\projects\yiiroot\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#10 E:\projects\yiiroot\trackstar\index.php(13): CApplication->run()
+#11 {main} REQUEST_URI=/yiiroot/trackstar/index.php?r=issue/admin&pid=1&visible=
+2018/12/16 03:24:21 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in E:\projects\yiiroot\trackstar\protected\modules\admin\AdminModule.php:26
+Stack trace:
+#0 E:\projects\yiiroot\framework\web\CController.php(255): AdminModule->beforeControllerAction(Object(SysMessageController), Object(CInlineAction))
+#1 E:\projects\yiiroot\framework\web\CWebApplication.php(324): CController->run('index')
+#2 E:\projects\yiiroot\framework\web\CWebApplication.php(121): CWebApplication->runController('admin/sysMessag...')
+#3 E:\projects\yiiroot\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#4 E:\projects\yiiroot\trackstar\index.php(13): CApplication->run()
+#5 {main} REQUEST_URI=/yiiroot/trackstar/index.php?r=admin/sysMessage/index
+2018/12/16 03:24:23 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in E:\projects\yiiroot\trackstar\protected\modules\admin\AdminModule.php:26
+Stack trace:
+#0 E:\projects\yiiroot\framework\web\CController.php(255): AdminModule->beforeControllerAction(Object(SysMessageController), Object(CInlineAction))
+#1 E:\projects\yiiroot\framework\web\CWebApplication.php(324): CController->run('index')
+#2 E:\projects\yiiroot\framework\web\CWebApplication.php(121): CWebApplication->runController('admin/sysMessag...')
+#3 E:\projects\yiiroot\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#4 E:\projects\yiiroot\trackstar\index.php(13): CApplication->run()
+#5 {main} REQUEST_URI=/yiiroot/trackstar/index.php?r=admin/sysMessage/index
+2018/12/16 03:54:10 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in E:\projects\yiiroot\framework\web\auth\CAccessControlFilter.php:153
+Stack trace:
+#0 E:\projects\yiiroot\framework\web\auth\CAccessControlFilter.php(115): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 E:\projects\yiiroot\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 E:\projects\yiiroot\framework\web\CController.php(1084): CFilter->filter(Object(CFilterChain))
+#3 E:\projects\yiiroot\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 E:\projects\yiiroot\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 E:\projects\yiiroot\framework\web\CController.php(283): CFilterChain->run()
+#6 E:\projects\yiiroot\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 E:\projects\yiiroot\framework\web\CWebApplication.php(324): CController->run('admin')
+#8 E:\projects\yiiroot\framework\web\CWebApplication.php(121): CWebApplication->runController('issue/admin')
+#9 E:\projects\yiiroot\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#10 E:\projects\yiiroot\trackstar\index.php(13): CApplication->run()
+#11 {main} REQUEST_URI=/yiiroot/trackstar/index.php?r=issue/admin&pid=1
+2018/12/16 04:00:59 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested project does not
+exist.' in E:\projects\yiiroot\trackstar\protected\controllers\IssueController.php:25
+Stack trace:
+#0 E:\projects\yiiroot\trackstar\protected\controllers\IssueController.php(218): IssueController->loadProject(NULL)
+#1 E:\projects\yiiroot\framework\web\filters\CInlineFilter.php(59): IssueController->filterProjectContext(Object(CFilterChain))
+#2 E:\projects\yiiroot\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#3 E:\projects\yiiroot\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#4 E:\projects\yiiroot\framework\web\CController.php(1084): CFilter->filter(Object(CFilterChain))
+#5 E:\projects\yiiroot\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#6 E:\projects\yiiroot\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#7 E:\projects\yiiroot\framework\web\CController.php(283): CFilterChain->run()
+#8 E:\projects\yiiroot\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#9 E:\projects\yiiroot\framework\web\CWebApplication.php(324): CController->run('admin')
+#10 E:\projects\yiiroot\framework\web\CWebApplication.php(121): CWebApplication->runController('issue/admin')
+#11 E:\projects\yiiroot\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#12 E:\projects\yiiroot\trackstar\index.php(13): CApplication->run()
+#13 {main} REQUEST_URI=/yiiroot/trackstar/index.php?r=issue/admin&id=15
+2018/12/16 04:01:47 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested project does not
+exist.' in E:\projects\yiiroot\trackstar\protected\controllers\IssueController.php:25
+Stack trace:
+#0 E:\projects\yiiroot\trackstar\protected\controllers\IssueController.php(218): IssueController->loadProject(NULL)
+#1 E:\projects\yiiroot\framework\web\filters\CInlineFilter.php(59): IssueController->filterProjectContext(Object(CFilterChain))
+#2 E:\projects\yiiroot\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#3 E:\projects\yiiroot\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#4 E:\projects\yiiroot\framework\web\CController.php(1084): CFilter->filter(Object(CFilterChain))
+#5 E:\projects\yiiroot\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#6 E:\projects\yiiroot\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#7 E:\projects\yiiroot\framework\web\CController.php(283): CFilterChain->run()
+#8 E:\projects\yiiroot\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#9 E:\projects\yiiroot\framework\web\CWebApplication.php(324): CController->run('admin')
+#10 E:\projects\yiiroot\framework\web\CWebApplication.php(121): CWebApplication->runController('issue/admin')
+#11 E:\projects\yiiroot\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#12 E:\projects\yiiroot\trackstar\index.php(13): CApplication->run()
+#13 {main} REQUEST_URI=/yiiroot/trackstar/index.php?r=issue/admin&id=15
