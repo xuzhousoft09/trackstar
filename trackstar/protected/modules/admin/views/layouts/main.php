@@ -23,7 +23,7 @@
 
 	<div id="header">
 		
-		<div id="logo"><?php echo CHtml::encode(Yii::app()->name) . " Admin Console"; ?></div>
+		<div id="logo"><?php echo CHtml::encode(Yii::app()->name); ?></div>
 	</div><!-- header -->
 
 	<div id="mainmenu">
@@ -35,7 +35,7 @@
 					array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
 						
 					array('label'=>'Projects', 'url'=>array('/project/index')),
-					array('label'=>'Users', 'url'=>array('/user/index')),
+					/* array('label'=>'Users', 'url'=>array('/user/index')), */
 					
 					array('label'=>'System Message', 'url'=>array('/admin/sysMessage/index')),
 					array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
