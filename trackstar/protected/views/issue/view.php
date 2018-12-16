@@ -20,7 +20,7 @@ $this->menu=array(
 	/* array('label'=>'Manage Issue', 'url'=>array('admin', 'pid'=>$model->project->id)), */
 		);
 /* array('label'=>'Manage Issue', 'url'=>array('admin', 'pid'=>$model->project->id,'visible'=>Yii::app()->user->checkAccess("admin"))), */
-if(Yii::app()->user->checkAccess('admin',array('project'=>$model)))
+if(Yii::app()->user->checkAccess('admin'))
 {
 	$this->menu[] = array('label'=>'Manage Issue',
 			'url'=>array('admin', 'pid'=>$model->project->id));
