@@ -9,8 +9,14 @@ $this->menu=array(
 	array('label'=>'Create SysMessage', 'url'=>array('create')),
 	array('label'=>'Update SysMessage', 'url'=>array('update', 'id'=>$model->id)),
 	array('label'=>'Delete SysMessage', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage SysMessage', 'url'=>array('admin')),
+	/* array('label'=>'Manage SysMessage', 'url'=>array('admin')), */
 );
+
+if(Yii::app()->user->checkAccess('admin'))
+{
+	$this->menu[] = array('label'=>'Manage SysMessage',
+			'url'=>array('admin'));
+}
 ?>
 
 <h1>View SysMessage #<?php echo $model->id; ?></h1>

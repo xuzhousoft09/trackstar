@@ -1999,3 +1999,15 @@ in E:\projects\yiiroot\trackstar\index.php (13)
 2018/12/16 08:12:56 [warning] [application] Failed to set unsafe attribute "update_user_id".
 in E:\projects\yiiroot\trackstar\protected\modules\admin\controllers\SysMessageController.php (94)
 in E:\projects\yiiroot\trackstar\index.php (13)
+2018/12/16 08:35:24 [warning] [application] Failed to set unsafe attribute "create_time".
+in E:\projects\yiiroot\trackstar\protected\modules\admin\controllers\SysMessageController.php (70)
+in E:\projects\yiiroot\trackstar\index.php (13)
+2018/12/16 08:35:24 [warning] [application] Failed to set unsafe attribute "create_user_id".
+in E:\projects\yiiroot\trackstar\protected\modules\admin\controllers\SysMessageController.php (70)
+in E:\projects\yiiroot\trackstar\index.php (13)
+2018/12/16 08:35:24 [warning] [application] Failed to set unsafe attribute "update_time".
+in E:\projects\yiiroot\trackstar\protected\modules\admin\controllers\SysMessageController.php (70)
+in E:\projects\yiiroot\trackstar\index.php (13)
+2018/12/16 08:35:24 [warning] [application] Failed to set unsafe attribute "update_user_id".
+in E:\projects\yiiroot\trackstar\protected\modules\admin\controllers\SysMessageController.php (70)
+in E:\projects\yiiroot\trackstar\index.php (13)
