@@ -3,8 +3,8 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 2018-12-17 08:08:48
--- 服务器版本： 5.7.14
+-- Generation Time: Dec 17, 2018 at 10:14 AM
+-- Server version: 5.7.14
 -- PHP Version: 5.6.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -23,7 +23,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- 表的结构 `authassignment`
+-- Table structure for table `authassignment`
 --
 
 CREATE TABLE `authassignment` (
@@ -31,10 +31,10 @@ CREATE TABLE `authassignment` (
   `userid` varchar(64) NOT NULL,
   `bizrule` text,
   `data` text
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- 转存表中的数据 `authassignment`
+-- Dumping data for table `authassignment`
 --
 
 INSERT INTO `authassignment` (`itemname`, `userid`, `bizrule`, `data`) VALUES
@@ -44,7 +44,7 @@ INSERT INTO `authassignment` (`itemname`, `userid`, `bizrule`, `data`) VALUES
 -- --------------------------------------------------------
 
 --
--- 表的结构 `authitem`
+-- Table structure for table `authitem`
 --
 
 CREATE TABLE `authitem` (
@@ -53,71 +53,71 @@ CREATE TABLE `authitem` (
   `description` text,
   `bizrule` text,
   `data` text
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- 转存表中的数据 `authitem`
+-- Dumping data for table `authitem`
 --
 
 INSERT INTO `authitem` (`name`, `type`, `description`, `bizrule`, `data`) VALUES
-('createUser', 0, 'create a new user', NULL, 'N;'),
-('readUser', 0, 'read user profile information', NULL, 'N;'),
-('updateUser', 0, 'update a users information', NULL, 'N;'),
-('deleteUser', 0, 'remove a user from a project', NULL, 'N;'),
-('createProject', 0, 'create a new project', NULL, 'N;'),
-('readProject', 0, 'read project information', NULL, 'N;'),
-('updateProject', 0, 'up date project information', NULL, 'N;'),
-('deleteProject', 0, 'delete a project', NULL, 'N;'),
+('admin', 2, '', NULL, 'N;'),
+('adminManagement', 1, 'access to the application administration functionality', NULL, 'N;'),
 ('createIssue', 0, 'create a new issue', NULL, 'N;'),
-('readIssue', 0, 'read issue information', NULL, 'N;'),
-('updateIssue', 0, 'update issue information', NULL, 'N;'),
+('createProject', 0, 'create a new project', NULL, 'N;'),
+('createUser', 0, 'create a new user', NULL, 'N;'),
 ('deleteIssue', 0, 'delete an issue from a project', NULL, 'N;'),
-('reader', 2, '', NULL, 'N;'),
+('deleteProject', 0, 'delete a project', NULL, 'N;'),
+('deleteUser', 0, 'remove a user from a project', NULL, 'N;'),
 ('member', 2, '', NULL, 'N;'),
 ('owner', 2, '', NULL, 'N;'),
-('adminManagement', 1, 'access to the application administration functionality', NULL, 'N;'),
-('admin', 2, '', NULL, 'N;');
+('reader', 2, '', NULL, 'N;'),
+('readIssue', 0, 'read issue information', NULL, 'N;'),
+('readProject', 0, 'read project information', NULL, 'N;'),
+('readUser', 0, 'read user profile information', NULL, 'N;'),
+('updateIssue', 0, 'update issue information', NULL, 'N;'),
+('updateProject', 0, 'up date project information', NULL, 'N;'),
+('updateUser', 0, 'update a users information', NULL, 'N;');
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `authitemchild`
+-- Table structure for table `authitemchild`
 --
 
 CREATE TABLE `authitemchild` (
   `parent` varchar(64) NOT NULL,
   `child` varchar(64) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- 转存表中的数据 `authitemchild`
+-- Dumping data for table `authitemchild`
 --
 
 INSERT INTO `authitemchild` (`parent`, `child`) VALUES
 ('admin', 'adminManagement'),
-('admin', 'member'),
-('admin', 'owner'),
-('admin', 'reader'),
 ('member', 'createIssue'),
-('member', 'deleteIssue'),
-('member', 'reader'),
-('member', 'updateIssue'),
 ('owner', 'createProject'),
 ('owner', 'createUser'),
+('member', 'deleteIssue'),
 ('owner', 'deleteProject'),
 ('owner', 'deleteUser'),
+('admin', 'member'),
 ('owner', 'member'),
+('admin', 'owner'),
+('admin', 'reader'),
+('member', 'reader'),
 ('owner', 'reader'),
-('owner', 'updateProject'),
-('owner', 'updateUser'),
 ('reader', 'readIssue'),
 ('reader', 'readProject'),
-('reader', 'readUser');
+('reader', 'readUser'),
+('member', 'updateIssue'),
+('owner', 'updateProject'),
+('owner', 'updateUser');
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `tbl_issue`
+-- Table structure for table `tbl_issue`
 --
 
 CREATE TABLE `tbl_issue` (
@@ -136,7 +136,7 @@ CREATE TABLE `tbl_issue` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- 转存表中的数据 `tbl_issue`
+-- Dumping data for table `tbl_issue`
 --
 
 INSERT INTO `tbl_issue` (`id`, `name`, `description`, `project_id`, `type_id`, `status_id`, `owner_id`, `requester_id`, `create_time`, `create_user_id`, `update_time`, `update_user_id`) VALUES
@@ -151,7 +151,7 @@ INSERT INTO `tbl_issue` (`id`, `name`, `description`, `project_id`, `type_id`, `
 -- --------------------------------------------------------
 
 --
--- 表的结构 `tbl_project`
+-- Table structure for table `tbl_project`
 --
 
 CREATE TABLE `tbl_project` (
@@ -165,17 +165,17 @@ CREATE TABLE `tbl_project` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- 转存表中的数据 `tbl_project`
+-- Dumping data for table `tbl_project`
 --
 
 INSERT INTO `tbl_project` (`id`, `name`, `description`, `create_time`, `create_user_id`, `update_time`, `update_user_id`) VALUES
-(1, 'project1', 'project111', NULL, NULL, '2018-12-16 18:16:47', 5),
+(1, 'project1', 'project111', NULL, NULL, '2018-12-17 18:12:11', 8),
 (2, 'Test Project15', 'testtesttesttest', '2018-12-16 13:56:34', 5, '2018-12-16 14:38:28', 12);
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `tbl_project_user_assignment`
+-- Table structure for table `tbl_project_user_assignment`
 --
 
 CREATE TABLE `tbl_project_user_assignment` (
@@ -188,7 +188,7 @@ CREATE TABLE `tbl_project_user_assignment` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- 转存表中的数据 `tbl_project_user_assignment`
+-- Dumping data for table `tbl_project_user_assignment`
 --
 
 INSERT INTO `tbl_project_user_assignment` (`project_id`, `user_id`, `create_time`, `create_user_id`, `update_time`, `update_user_id`) VALUES
@@ -203,28 +203,28 @@ INSERT INTO `tbl_project_user_assignment` (`project_id`, `user_id`, `create_time
 -- --------------------------------------------------------
 
 --
--- 表的结构 `tbl_project_user_role`
+-- Table structure for table `tbl_project_user_role`
 --
 
 CREATE TABLE `tbl_project_user_role` (
   `project_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `role` varchar(64) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- 转存表中的数据 `tbl_project_user_role`
+-- Dumping data for table `tbl_project_user_role`
 --
 
 INSERT INTO `tbl_project_user_role` (`project_id`, `user_id`, `role`) VALUES
+(2, 5, 'admin'),
 (1, 8, 'reader'),
-(1, 11, 'owner'),
-(2, 5, 'admin');
+(1, 11, 'owner');
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `tbl_sys_message`
+-- Table structure for table `tbl_sys_message`
 --
 
 CREATE TABLE `tbl_sys_message` (
@@ -234,10 +234,10 @@ CREATE TABLE `tbl_sys_message` (
   `create_user_id` int(11) DEFAULT NULL,
   `update_time` datetime DEFAULT NULL,
   `update_user_id` int(11) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- 转存表中的数据 `tbl_sys_message`
+-- Dumping data for table `tbl_sys_message`
 --
 
 INSERT INTO `tbl_sys_message` (`id`, `message`, `create_time`, `create_user_id`, `update_time`, `update_user_id`) VALUES
@@ -249,7 +249,7 @@ INSERT INTO `tbl_sys_message` (`id`, `message`, `create_time`, `create_user_id`,
 -- --------------------------------------------------------
 
 --
--- 表的结构 `tbl_user`
+-- Table structure for table `tbl_user`
 --
 
 CREATE TABLE `tbl_user` (
@@ -265,7 +265,7 @@ CREATE TABLE `tbl_user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- 转存表中的数据 `tbl_user`
+-- Dumping data for table `tbl_user`
 --
 
 INSERT INTO `tbl_user` (`id`, `email`, `username`, `password`, `last_login_time`, `create_time`, `create_user_id`, `update_time`, `update_user_id`) VALUES
@@ -345,35 +345,48 @@ ALTER TABLE `tbl_user`
   ADD PRIMARY KEY (`id`);
 
 --
--- 在导出的表使用AUTO_INCREMENT
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- 使用表AUTO_INCREMENT `tbl_issue`
+-- AUTO_INCREMENT for table `tbl_issue`
 --
 ALTER TABLE `tbl_issue`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 --
--- 使用表AUTO_INCREMENT `tbl_project`
+-- AUTO_INCREMENT for table `tbl_project`
 --
 ALTER TABLE `tbl_project`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
--- 使用表AUTO_INCREMENT `tbl_sys_message`
+-- AUTO_INCREMENT for table `tbl_sys_message`
 --
 ALTER TABLE `tbl_sys_message`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
--- 使用表AUTO_INCREMENT `tbl_user`
+-- AUTO_INCREMENT for table `tbl_user`
 --
 ALTER TABLE `tbl_user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
--- 限制导出的表
+-- Constraints for dumped tables
 --
 
 --
--- 限制表 `tbl_issue`
+-- Constraints for table `authassignment`
+--
+ALTER TABLE `authassignment`
+  ADD CONSTRAINT `authassignment_ibfk_1` FOREIGN KEY (`itemname`) REFERENCES `authitem` (`name`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `authitemchild`
+--
+ALTER TABLE `authitemchild`
+  ADD CONSTRAINT `authitemchild_ibfk_1` FOREIGN KEY (`parent`) REFERENCES `authitem` (`name`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `authitemchild_ibfk_2` FOREIGN KEY (`child`) REFERENCES `authitem` (`name`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `tbl_issue`
 --
 ALTER TABLE `tbl_issue`
   ADD CONSTRAINT `FK_issue_owner` FOREIGN KEY (`owner_id`) REFERENCES `tbl_user` (`id`) ON DELETE CASCADE,
@@ -381,11 +394,19 @@ ALTER TABLE `tbl_issue`
   ADD CONSTRAINT `FK_issue_requester` FOREIGN KEY (`requester_id`) REFERENCES `tbl_user` (`id`) ON DELETE CASCADE;
 
 --
--- 限制表 `tbl_project_user_assignment`
+-- Constraints for table `tbl_project_user_assignment`
 --
 ALTER TABLE `tbl_project_user_assignment`
   ADD CONSTRAINT `FK_project_user` FOREIGN KEY (`project_id`) REFERENCES `tbl_project` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `FK_user_project` FOREIGN KEY (`user_id`) REFERENCES `tbl_user` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `tbl_project_user_role`
+--
+ALTER TABLE `tbl_project_user_role`
+  ADD CONSTRAINT `tbl_project_user_role_ibfk_1` FOREIGN KEY (`project_id`) REFERENCES `tbl_project` (`id`),
+  ADD CONSTRAINT `tbl_project_user_role_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `tbl_user` (`id`),
+  ADD CONSTRAINT `tbl_project_user_role_ibfk_3` FOREIGN KEY (`role`) REFERENCES `authitem` (`name`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
