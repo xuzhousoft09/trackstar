@@ -3506,3 +3506,160 @@ Stack trace:
 #12 E:\projects\yiiroot\framework\base\CApplication.php(135): CWebApplication->processRequest()
 #13 E:\projects\yiiroot\trackstar\index.php(13): CApplication->run()
 #14 {main} REQUEST_URI=/yiiroot/trackstar/index.php?r=project/view&id=1
+2018/12/18 07:44:53 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to per-form this action' in E:\projects\yiiroot\trackstar\protected\controllers\ProjectController.php:64
+Stack trace:
+#0 [internal function]: ProjectController->actionView('1')
+#1 E:\projects\yiiroot\framework\web\actions\CInlineAction.php(54): ReflectionMethod->invokeArgs(Object(ProjectController), Array)
+#2 E:\projects\yiiroot\framework\web\CController.php(300): CInlineAction->run()
+#3 E:\projects\yiiroot\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#4 E:\projects\yiiroot\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#5 E:\projects\yiiroot\framework\web\CController.php(1084): CFilter->filter(Object(CFilterChain))
+#6 E:\projects\yiiroot\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#7 E:\projects\yiiroot\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#8 E:\projects\yiiroot\framework\web\CController.php(283): CFilterChain->run()
+#9 E:\projects\yiiroot\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 E:\projects\yiiroot\framework\web\CWebApplication.php(324): CController->run('view')
+#11 E:\projects\yiiroot\framework\web\CWebApplication.php(121): CWebApplication->runController('project/view')
+#12 E:\projects\yiiroot\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#13 E:\projects\yiiroot\trackstar\index.php(13): CApplication->run()
+#14 {main} REQUEST_URI=/yiiroot/trackstar/index.php?r=project/view&id=1
+2018/12/18 07:45:10 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to per-form this action' in E:\projects\yiiroot\trackstar\protected\controllers\ProjectController.php:93
+Stack trace:
+#0 E:\projects\yiiroot\framework\web\actions\CInlineAction.php(57): ProjectController->actionCreate()
+#1 E:\projects\yiiroot\framework\web\CController.php(300): CInlineAction->run()
+#2 E:\projects\yiiroot\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#3 E:\projects\yiiroot\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#4 E:\projects\yiiroot\framework\web\CController.php(1084): CFilter->filter(Object(CFilterChain))
+#5 E:\projects\yiiroot\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#6 E:\projects\yiiroot\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#7 E:\projects\yiiroot\framework\web\CController.php(283): CFilterChain->run()
+#8 E:\projects\yiiroot\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#9 E:\projects\yiiroot\framework\web\CWebApplication.php(324): CController->run('create')
+#10 E:\projects\yiiroot\framework\web\CWebApplication.php(121): CWebApplication->runController('project/create')
+#11 E:\projects\yiiroot\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#12 E:\projects\yiiroot\trackstar\index.php(13): CApplication->run()
+#13 {main} REQUEST_URI=/yiiroot/trackstar/index.php?r=project/create
+2018/12/18 07:47:20 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to per-form this action' in E:\projects\yiiroot\trackstar\protected\controllers\ProjectController.php:64
+Stack trace:
+#0 [internal function]: ProjectController->actionView('1')
+#1 E:\projects\yiiroot\framework\web\actions\CInlineAction.php(54): ReflectionMethod->invokeArgs(Object(ProjectController), Array)
+#2 E:\projects\yiiroot\framework\web\CController.php(300): CInlineAction->run()
+#3 E:\projects\yiiroot\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#4 E:\projects\yiiroot\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#5 E:\projects\yiiroot\framework\web\CController.php(1084): CFilter->filter(Object(CFilterChain))
+#6 E:\projects\yiiroot\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#7 E:\projects\yiiroot\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#8 E:\projects\yiiroot\framework\web\CController.php(283): CFilterChain->run()
+#9 E:\projects\yiiroot\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 E:\projects\yiiroot\framework\web\CWebApplication.php(324): CController->run('view')
+#11 E:\projects\yiiroot\framework\web\CWebApplication.php(121): CWebApplication->runController('project/view')
+#12 E:\projects\yiiroot\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#13 E:\projects\yiiroot\trackstar\index.php(13): CApplication->run()
+#14 {main} REQUEST_URI=/yiiroot/trackstar/index.php?r=project/view&id=1
+2018/12/18 07:47:29 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to per-form this action' in E:\projects\yiiroot\trackstar\protected\controllers\ProjectController.php:93
+Stack trace:
+#0 E:\projects\yiiroot\framework\web\actions\CInlineAction.php(57): ProjectController->actionCreate()
+#1 E:\projects\yiiroot\framework\web\CController.php(300): CInlineAction->run()
+#2 E:\projects\yiiroot\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#3 E:\projects\yiiroot\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#4 E:\projects\yiiroot\framework\web\CController.php(1084): CFilter->filter(Object(CFilterChain))
+#5 E:\projects\yiiroot\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#6 E:\projects\yiiroot\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#7 E:\projects\yiiroot\framework\web\CController.php(283): CFilterChain->run()
+#8 E:\projects\yiiroot\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#9 E:\projects\yiiroot\framework\web\CWebApplication.php(324): CController->run('create')
+#10 E:\projects\yiiroot\framework\web\CWebApplication.php(121): CWebApplication->runController('project/create')
+#11 E:\projects\yiiroot\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#12 E:\projects\yiiroot\trackstar\index.php(13): CApplication->run()
+#13 {main} REQUEST_URI=/yiiroot/trackstar/index.php?r=project/create
+2018/12/18 07:47:34 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to per-form this action' in E:\projects\yiiroot\trackstar\protected\controllers\ProjectController.php:93
+Stack trace:
+#0 E:\projects\yiiroot\framework\web\actions\CInlineAction.php(57): ProjectController->actionCreate()
+#1 E:\projects\yiiroot\framework\web\CController.php(300): CInlineAction->run()
+#2 E:\projects\yiiroot\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#3 E:\projects\yiiroot\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#4 E:\projects\yiiroot\framework\web\CController.php(1084): CFilter->filter(Object(CFilterChain))
+#5 E:\projects\yiiroot\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#6 E:\projects\yiiroot\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#7 E:\projects\yiiroot\framework\web\CController.php(283): CFilterChain->run()
+#8 E:\projects\yiiroot\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#9 E:\projects\yiiroot\framework\web\CWebApplication.php(324): CController->run('create')
+#10 E:\projects\yiiroot\framework\web\CWebApplication.php(121): CWebApplication->runController('project/create')
+#11 E:\projects\yiiroot\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#12 E:\projects\yiiroot\trackstar\index.php(13): CApplication->run()
+#13 {main} REQUEST_URI=/yiiroot/trackstar/index.php?r=project/create
+2018/12/18 07:49:40 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "List Project".' in E:\projects\yiiroot\framework\web\CController.php:444
+Stack trace:
+#0 E:\projects\yiiroot\framework\web\CController.php(262): CController->missingAction('List Project')
+#1 E:\projects\yiiroot\framework\web\CWebApplication.php(324): CController->run('List Project')
+#2 E:\projects\yiiroot\framework\web\CWebApplication.php(121): CWebApplication->runController('project/List Pr...')
+#3 E:\projects\yiiroot\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#4 E:\projects\yiiroot\trackstar\index.php(13): CApplication->run()
+#5 {main} REQUEST_URI=/yiiroot/trackstar/index.php?r=project/List%20Project
+2018/12/18 07:50:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "List Project".' in E:\projects\yiiroot\framework\web\CController.php:444
+Stack trace:
+#0 E:\projects\yiiroot\framework\web\CController.php(262): CController->missingAction('List Project')
+#1 E:\projects\yiiroot\framework\web\CWebApplication.php(324): CController->run('List Project')
+#2 E:\projects\yiiroot\framework\web\CWebApplication.php(121): CWebApplication->runController('project/List Pr...')
+#3 E:\projects\yiiroot\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#4 E:\projects\yiiroot\trackstar\index.php(13): CApplication->run()
+#5 {main} REQUEST_URI=/yiiroot/trackstar/index.php?r=project/List%20Project
+2018/12/18 07:50:36 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "list".' in E:\projects\yiiroot\framework\web\CController.php:444
+Stack trace:
+#0 E:\projects\yiiroot\framework\web\CController.php(262): CController->missingAction('list')
+#1 E:\projects\yiiroot\framework\web\CWebApplication.php(324): CController->run('list')
+#2 E:\projects\yiiroot\framework\web\CWebApplication.php(121): CWebApplication->runController('project/list')
+#3 E:\projects\yiiroot\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#4 E:\projects\yiiroot\trackstar\index.php(13): CApplication->run()
+#5 {main} REQUEST_URI=/yiiroot/trackstar/index.php?r=project/list
+2018/12/18 07:51:15 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to per-form this action' in E:\projects\yiiroot\trackstar\protected\controllers\ProjectController.php:64
+Stack trace:
+#0 [internal function]: ProjectController->actionView('1')
+#1 E:\projects\yiiroot\framework\web\actions\CInlineAction.php(54): ReflectionMethod->invokeArgs(Object(ProjectController), Array)
+#2 E:\projects\yiiroot\framework\web\CController.php(300): CInlineAction->run()
+#3 E:\projects\yiiroot\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#4 E:\projects\yiiroot\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#5 E:\projects\yiiroot\framework\web\CController.php(1084): CFilter->filter(Object(CFilterChain))
+#6 E:\projects\yiiroot\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#7 E:\projects\yiiroot\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#8 E:\projects\yiiroot\framework\web\CController.php(283): CFilterChain->run()
+#9 E:\projects\yiiroot\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 E:\projects\yiiroot\framework\web\CWebApplication.php(324): CController->run('view')
+#11 E:\projects\yiiroot\framework\web\CWebApplication.php(121): CWebApplication->runController('project/view')
+#12 E:\projects\yiiroot\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#13 E:\projects\yiiroot\trackstar\index.php(13): CApplication->run()
+#14 {main} REQUEST_URI=/yiiroot/trackstar/index.php?r=project/view&id=1
+2018/12/18 07:51:25 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to per-form this action' in E:\projects\yiiroot\trackstar\protected\controllers\ProjectController.php:64
+Stack trace:
+#0 [internal function]: ProjectController->actionView('1')
+#1 E:\projects\yiiroot\framework\web\actions\CInlineAction.php(54): ReflectionMethod->invokeArgs(Object(ProjectController), Array)
+#2 E:\projects\yiiroot\framework\web\CController.php(300): CInlineAction->run()
+#3 E:\projects\yiiroot\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#4 E:\projects\yiiroot\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#5 E:\projects\yiiroot\framework\web\CController.php(1084): CFilter->filter(Object(CFilterChain))
+#6 E:\projects\yiiroot\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#7 E:\projects\yiiroot\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#8 E:\projects\yiiroot\framework\web\CController.php(283): CFilterChain->run()
+#9 E:\projects\yiiroot\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 E:\projects\yiiroot\framework\web\CWebApplication.php(324): CController->run('view')
+#11 E:\projects\yiiroot\framework\web\CWebApplication.php(121): CWebApplication->runController('project/view')
+#12 E:\projects\yiiroot\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#13 E:\projects\yiiroot\trackstar\index.php(13): CApplication->run()
+#14 {main} REQUEST_URI=/yiiroot/trackstar/index.php?r=project/view&id=1
+2018/12/18 07:51:40 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to per-form this action' in E:\projects\yiiroot\trackstar\protected\controllers\ProjectController.php:64
+Stack trace:
+#0 [internal function]: ProjectController->actionView('1')
+#1 E:\projects\yiiroot\framework\web\actions\CInlineAction.php(54): ReflectionMethod->invokeArgs(Object(ProjectController), Array)
+#2 E:\projects\yiiroot\framework\web\CController.php(300): CInlineAction->run()
+#3 E:\projects\yiiroot\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#4 E:\projects\yiiroot\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#5 E:\projects\yiiroot\framework\web\CController.php(1084): CFilter->filter(Object(CFilterChain))
+#6 E:\projects\yiiroot\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#7 E:\projects\yiiroot\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#8 E:\projects\yiiroot\framework\web\CController.php(283): CFilterChain->run()
+#9 E:\projects\yiiroot\framework\web\CController.php(257): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 E:\projects\yiiroot\framework\web\CWebApplication.php(324): CController->run('view')
+#11 E:\projects\yiiroot\framework\web\CWebApplication.php(121): CWebApplication->runController('project/view')
+#12 E:\projects\yiiroot\framework\base\CApplication.php(135): CWebApplication->processRequest()
+#13 E:\projects\yiiroot\trackstar\index.php(13): CApplication->run()
+#14 {main} REQUEST_URI=/yiiroot/trackstar/index.php?r=project/view&id=1

@@ -4,7 +4,7 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Create Project', 'url'=>array('create')),
+	array('label'=>'List Project', 'url'=>array('index')),
 	array('label'=>'Manage Project', 'url'=>array('admin'),'visible'=>Yii::app()->user->checkAccess("admin")),
 );
 ?>
