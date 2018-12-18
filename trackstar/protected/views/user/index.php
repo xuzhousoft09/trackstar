@@ -5,7 +5,7 @@ $this->breadcrumbs=array(
 
 $this->menu=array(
 		array('label'=>'List User', 'url'=>array('index')),
-	array('label'=>'Create User', 'url'=>array('admin'),'visible'=>Yii::app()->user->checkAccess("admin")),
+	array('label'=>'Create User', 'url'=>array('create'),'visible'=>Yii::app()->user->checkAccess("admin")),
 	/* array('label'=>'Manage User', 'url'=>array('admin')), */
 	array('label'=>'Manage User', 'url'=>array('admin'),'visible'=>Yii::app()->user->checkAccess("admin")),
 		);
