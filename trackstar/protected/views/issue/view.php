@@ -12,14 +12,33 @@ $this->breadcrumbs=array(
 
 $this->menu=array(
 	array('label'=>'List Issue', 'url'=>array('index','pid'=>$model->project->id)),
-    array('label'=>'Create Issue', 'url'=>array('create','pid'=>$model->project->id)),
+    /* array('label'=>'Create Issue', 'url'=>array('create','pid'=>$model->project->id)), */
 	/* array('label'=>'Create Issue', 'url'=>array('create')), */
     
-	array('label'=>'Update Issue', 'url'=>array('update', 'id'=>$model->id)),
-	array('label'=>'Delete Issue', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
+	/* array('label'=>'Update Issue', 'url'=>array('update', 'id'=>$model->id)), */
+	/* array('label'=>'Delete Issue', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')), */
 	/* array('label'=>'Manage Issue', 'url'=>array('admin', 'pid'=>$model->project->id)), */
 		);
 /* array('label'=>'Manage Issue', 'url'=>array('admin', 'pid'=>$model->project->id,'visible'=>Yii::app()->user->checkAccess("admin"))), */
+
+if(Yii::app()->user->checkAccess('createIssue'))
+{
+	$this->menu[] = array('label'=>'Create Issue',
+			'url'=>array('create', 'pid'=>$model->project->id));
+}
+
+if(Yii::app()->user->checkAccess('updateIssue'))
+{
+	$this->menu[] = array('label'=>'Update Issue',
+			'url'=>array('update', 'id'=>$model->id));
+}
+if(Yii::app()->user->checkAccess('deleteIssue'))
+{
+	$this->menu[] = array('label'=>'Delete Issue', 
+			'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?'));
+			
+}
+
 if(Yii::app()->user->checkAccess('admin'))
 {
 	$this->menu[] = array('label'=>'Manage Issue',

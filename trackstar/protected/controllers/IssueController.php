@@ -96,9 +96,12 @@ exist.');
 		
 		$model->project_id = $this->_project->id;
 		
-	
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
+		$project=$this->loadProject($model->project_id);
+		$params=array('project'=>$project);
+		if(!Yii::app()->user->checkAccess('createIssue',$params))
+		{
+			throw new CHttpException(403,'You are not authorized to per-form this action');
+		}
 		
 		if(isset($_POST['Issue']))
 		{
@@ -119,12 +122,15 @@ exist.');
 	public function actionUpdate($id)
 	{
 	    
-		$model=$this->loadModel($id);
-		        
-		     $this->loadProject($model->project_id);
-		     $model->project_id = $this->_project->id;
-		  /*    var_dump($this->_project->id);
-		echo exit;   */ 
+		$model=$this->loadModel($id);        
+		$this->loadProject($model->project_id);
+		$model->project_id = $this->_project->id;
+		$project=$this->loadProject($model->project_id);
+		$params=array('project'=>$project);
+		if(!Yii::app()->user->checkAccess('createIssue',$params))
+		{
+			throw new CHttpException(403,'You are not authorized to per-form this action');
+		}
 		   
 		if(isset($_POST['Issue']))
 		{
@@ -146,6 +152,17 @@ exist.');
 	 */
 	public function actionDelete($id)
 	{
+		$model=$this->loadModel($id);
+		
+		$project=$this->loadProject($model->project_id);
+		
+		$params=array('project'=>$project);
+		
+		if(!Yii::app()->user->checkAccess('readIssue',$params))
+		{
+			throw new CHttpException(403,'You are not authorized to per-form this action');
+		}
+		
 		if(Yii::app()->request->isPostRequest)
 		{
 			// we only allow deletion via POST request
