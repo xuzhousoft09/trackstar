@@ -58,6 +58,11 @@ class ProjectController extends Controller
 	
 	public function actionView($id)
 	{
+		$model=$this->loadModel($id);
+		if(!Yii::app()->user->checkAccess('readProject',array('project'=>$model)))
+		{
+			throw new CHttpException(403,'You are not authorized to per-form this action');
+		}
 	    $issueDataProvider=new CActiveDataProvider('Issue', array(
 	        'criteria'=>array(
 	            'condition'=>'project_id=:projectId',
@@ -83,7 +88,10 @@ class ProjectController extends Controller
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
-
+		if(!Yii::app()->user->checkAccess('updateProject',array('project'=>$model)))
+		{
+			throw new CHttpException(403,'You are not authorized to per-form this action');
+		}
 		if(isset($_POST['Project']))
 		{
 			$model->attributes=$_POST['Project'];
@@ -107,7 +115,12 @@ class ProjectController extends Controller
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
-
+		/* var_dump(Yii::app()->user->checkAccess('updateProject',array('project'=>$model)));exit; */ //returned fals.
+		if(!Yii::app()->user->checkAccess('updateProject',array('project'=>$model)))
+		{
+			throw new CHttpException(403,'You are not authorized to per-form this action');
+		}
+		/* $form=new ProjectUserForm; */
 		if(isset($_POST['Project']))
 		{
 			$model->attributes=$_POST['Project'];
@@ -131,7 +144,10 @@ class ProjectController extends Controller
 		{
 			// we only allow deletion via POST request
 			$this->loadModel($id)->delete();
-
+			if(!Yii::app()->user->checkAccess('updateProject',array('project'=>$model)))
+			{
+				throw new CHttpException(403,'You are not authorized to per-form this action');
+			}
 			// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 			if(!isset($_GET['ajax']))
 				$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
@@ -145,6 +161,11 @@ class ProjectController extends Controller
 	 */
 	public function actionIndex()
 	{
+		
+		/* if(!Yii::app()->user->checkAccess('readProject',array('project'=>$project)))
+		{
+			throw new CHttpException(403,'You are not authorized to per-form this action');
+		} */
 		$dataProvider=new CActiveDataProvider('Project');
 	/* 	var_dump($this); */
 		/* $this->render('index',array(

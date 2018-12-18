@@ -6,11 +6,11 @@ $this->breadcrumbs=array(
 
 $this->menu=array(
 	array('label'=>'List Project', 'url'=>array('index')),
-	array('label'=>'Create Project', 'url'=>array('create')),
+	/* array('label'=>'Create Project', 'url'=>array('create')), */
 	/* array('label'=>'Update Project', 'url'=>array('update', 'id'=>$model->id)), */
-	array('label'=>'Delete Project', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
+/* 	array('label'=>'Delete Project', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')), */
 	/* array('label'=>'Manage Project', 'url'=>array('admin')),  */
-    array('label'=>'Create Issue', 'url'=>array('issue/create','pid'=>$model->id)),
+    array('label'=>'Create Issue', 'url'=>array('issue/create','pid'=>$model->id)), 
 		
 );
 if(Yii::app()->user->checkAccess('createUser',array('project'=>$model)))
@@ -28,6 +28,20 @@ if(Yii::app()->user->checkAccess('updateProject',array('project'=>$model)))
 		$this->menu[] = array('label'=>'Update Project',
 				'url'=>array('update', 'id'=>$model->id));// defined only the users who have the updateProject permission can update the projects
 	}
+	
+if(Yii::app()->user->checkAccess('createProject',array('project'=>$model)))
+{
+	$this->menu[] = array('label'=>'Create Project', 
+			     'url'=>array('create'));
+			
+}
+if(Yii::app()->user->checkAccess('deleteProject',array('project'=>$model)))
+{
+	array('label'=>'Delete Project', 
+			     'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?'));
+
+	
+}
 ?>
 
 <h1>View Project #<?php echo $model->id; ?></h1>
