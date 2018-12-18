@@ -69,9 +69,21 @@ exist.');
 	 */
 	public function actionView($id)
 	{
+		$model=$this->loadModel($id);
+		
+		$project=$this->loadProject($model->project_id);
+		
+		$params=array('project'=>$project);
+		
+		if(Yii::app()->user->checkAccess('readIssue',$params))
+		{
 		$this->render('view',array(
 			'model'=>$this->loadModel($id),
-		));
+		));}
+		else
+		{
+		throw new CHttpException(403,'You are not authorized to per-form this action');
+		}
 	}
 
 	/**
@@ -84,6 +96,7 @@ exist.');
 		
 		$model->project_id = $this->_project->id;
 		
+	
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 		
