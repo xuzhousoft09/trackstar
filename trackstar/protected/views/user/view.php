@@ -5,13 +5,38 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List User', 'url'=>array('index')),
-	array('label'=>'Create User', 'url'=>array('create')),
+	 array('label'=>'List User', 'url'=>array('index')),
+/* 	array('label'=>'Create User', 'url'=>array('create')), 
 	array('label'=>'Update User', 'url'=>array('update', 'id'=>$model->id)),
 	array('label'=>'Delete User', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage User', 'url'=>array('admin')),
-);
+	array('label'=>'Manage User', 'url'=>array('admin')),  */
+); 
+
+if(Yii::app()->user->checkAccess('admin'))
+{
+	$this->menu[] = array('label'=>'Create User',
+			'url'=>array('create'));
+}
+if(Yii::app()->user->checkAccess('admin'))
+{
+	$this->menu[] = array('label'=>'Update User',
+			'url'=>array('update', 'id'=>$model->id));
+}
+if(Yii::app()->user->checkAccess('admin'))
+{
+	$this->menu[] = array('label'=>'Delete User',
+			'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?'));
+}
+if(Yii::app()->user->checkAccess('admin'))
+{
+	$this->menu[] = array('label'=>'Manage User',
+			'url'=>array('admin'));
+}
+
+
 ?>
+
+
 
 <h1>View User #<?php echo $model->id; ?></h1>
 
