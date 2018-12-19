@@ -127,7 +127,7 @@ exist.');
 		$model->project_id = $this->_project->id;
 		$project=$this->loadProject($model->project_id);
 		$params=array('project'=>$project);
-		if(!Yii::app()->user->checkAccess('createIssue',$params))
+		if(!Yii::app()->user->checkAccess('updateIssue',$params))
 		{
 			throw new CHttpException(403,'You are not authorized to per-form this action');
 		}
@@ -152,13 +152,13 @@ exist.');
 	 */
 	public function actionDelete($id)
 	{
-		$model=$this->loadModel($id);
 		
+		/* var_dump($id);exit; */
+		$model=$this->loadModel($id);	
 		$project=$this->loadProject($model->project_id);
-		
 		$params=array('project'=>$project);
-		
-		if(!Yii::app()->user->checkAccess('readIssue',$params))
+		/* var_dump(Yii::app()->user->checkAccess('deleteIssue',$params));exit; */
+		if(!Yii::app()->user->checkAccess('deleteIssue',$params))
 		{
 			throw new CHttpException(403,'You are not authorized to per-form this action');
 		}

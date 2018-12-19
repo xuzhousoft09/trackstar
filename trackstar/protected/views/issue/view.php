@@ -20,22 +20,29 @@ $this->menu=array(
 	/* array('label'=>'Manage Issue', 'url'=>array('admin', 'pid'=>$model->project->id)), */
 		);
 /* array('label'=>'Manage Issue', 'url'=>array('admin', 'pid'=>$model->project->id,'visible'=>Yii::app()->user->checkAccess("admin"))), */
+/* var_dump($model);exit; */
+/* if(Yii::app()->user->checkAccess('createIssue',array('issue'=>$model))) */ 
+$project=$this->loadProject($model->project_id);
+/* var_dump($project); exit; */
+$params=array('project'=>$project);
+/* var_dump($model); exit;  //retruned fals */ 
+if(Yii::app()->user->checkAccess('createIssue',$params))
 
-if(Yii::app()->user->checkAccess('createIssue'))
 {
 	$this->menu[] = array('label'=>'Create Issue',
 			'url'=>array('create', 'pid'=>$model->project->id));
 }
 
-if(Yii::app()->user->checkAccess('updateIssue'))
+if(Yii::app()->user->checkAccess('updateIssue',$params))
 {
 	$this->menu[] = array('label'=>'Update Issue',
 			'url'=>array('update', 'id'=>$model->id));
 }
-if(Yii::app()->user->checkAccess('deleteIssue'))
+/* var_dump(Yii::app()->user->checkAccess('deleteIssue',$params));exit; */
+if(Yii::app()->user->checkAccess('deleteIssue',$params))
 {
 	$this->menu[] = array('label'=>'Delete Issue', 
-			'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?'));
+'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?'));
 			
 }
 
