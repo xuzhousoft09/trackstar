@@ -35,13 +35,16 @@ if(Yii::app()->user->checkAccess('createProject',array('project'=>$model)))
 			     'url'=>array('create'));
 			
 }
-if(Yii::app()->user->checkAccess('deleteProject',array('project'=>$model)))
+
+
+/* var_dump(Yii::app()->user->checkAccess('deleteProject',array('project'=>$model))); */ //returned true
+/* if(Yii::app()->user->checkAccess('deleteProject',array('project'=>$model)))
 {
-	array('label'=>'Delete Project', 
+	$this->menu[] =array('label'=>'Delete Project', 
 			     'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?'));
 
 	
-}
+}  */
 ?>
 
 <h1>View Project #<?php echo $model->id; ?></h1>
