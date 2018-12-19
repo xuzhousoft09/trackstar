@@ -50,16 +50,20 @@ exist.');
 			
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('create','update','delete'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
 				'actions'=>array('admin','delete'),
 				'users'=>array('admin'),
 			),
+				/* array('allow', // allow admin user to perform 'admin' and 'delete' actions
+				'actions'=>array('delete'),
+				'users'=>array('deleteIssue'),
+				), */
 			array('deny',  // deny all users
 				'users'=>array('*'),
-			),
+			), 
 		);
 	}
 
@@ -121,7 +125,7 @@ exist.');
 	}
 	public function actionUpdate($id)
 	{
-	    
+	
 		$model=$this->loadModel($id);        
 		$this->loadProject($model->project_id);
 		$model->project_id = $this->_project->id;
@@ -153,20 +157,24 @@ exist.');
 	public function actionDelete($id)
 	{
 		
-		/* var_dump($id);exit; */
-		$model=$this->loadModel($id);	
-		$project=$this->loadProject($model->project_id);
-		$params=array('project'=>$project);
-		/* var_dump(Yii::app()->user->checkAccess('deleteIssue',$params));exit; */
-		if(!Yii::app()->user->checkAccess('deleteIssue',$params))
-		{
-			throw new CHttpException(403,'You are not authorized to per-form this action');
-		}
+		
+		
+		/* var_dump(Yii::app()->user->checkAccess('deleteIssue',$params));exit;  */ //returned true
+		
 		
 		if(Yii::app()->request->isPostRequest)
 		{
+			
+			$model=$this->loadModel($id);
+			$project=$this->loadProject($model->project_id);
+			$params=array('project'=>$project);
 			// we only allow deletion via POST request
 			$this->loadModel($id)->delete();
+			if(!Yii::app()->user->checkAccess('deleteIssue',$params))
+			{
+				throw new CHttpException(403,'You are not authorized to per-form this action');
+			}
+			
 
 			// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 			if(!isset($_GET['ajax']))
@@ -174,7 +182,10 @@ exist.');
 		}
 		else
 			throw new CHttpException(400,'Invalid request. Please do not repeat this request again.');
-	}
+	} 
+	
+	
+	
 
 	/**
 	 * Lists all models.
