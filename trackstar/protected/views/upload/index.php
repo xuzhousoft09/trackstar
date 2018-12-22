@@ -20,7 +20,7 @@
 
 $this->file=CUploadedFile::getInstance($model,'file');
 
-echo CHtml::link('Download file',array('/upload/download','id'=>$this->file->getName())); 
+echo CHtml::link($this->file->getName(),array('/upload/download','id'=>$this->file->getName())); 
 
 }?>
 
