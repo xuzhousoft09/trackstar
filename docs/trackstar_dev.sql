@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 19, 2018 at 09:58 AM
+-- Generation Time: Dec 22, 2018 at 01:26 PM
 -- Server version: 5.7.14
 -- PHP Version: 5.6.25
 
@@ -40,7 +40,9 @@ CREATE TABLE `authassignment` (
 INSERT INTO `authassignment` (`itemname`, `userid`, `bizrule`, `data`) VALUES
 ('admin', '12', NULL, 'N;'),
 ('member', '10', 'return isset($params["project"]) &&$params["project"]->isUserInRole("member");', 'N;'),
+('member', '11', 'return isset($params["project"]) &&$params["project"]->isUserInRole("member");', 'N;'),
 ('member', '16', 'return isset($params["project"]) &&$params["project"]->isUserInRole("member");', 'N;'),
+('owner', '12', 'return isset($params["project"]) &&$params["project"]->isUserInRole("owner");', 'N;'),
 ('owner', '13', 'return isset($params["project"]) &&$params["project"]->isUserInRole("owner");', 'N;'),
 ('owner', '17', 'return isset($params["project"]) &&$params["project"]->isUserInRole("owner");', 'N;'),
 ('reader', '14', 'return isset($params["project"]) &&$params["project"]->isUserInRole("reader");', 'N;'),
@@ -152,7 +154,16 @@ INSERT INTO `tbl_issue` (`id`, `name`, `description`, `project_id`, `type_id`, `
 (16, 'test issue belong to project1', '', 1, 0, 4, 1, 1, NULL, NULL, '2018-12-09 23:01:19', 0),
 (17, 'test issue belong to project1', '', 1, 3, NULL, 1, 1, NULL, NULL, NULL, NULL),
 (32, 'test issue belong to project2', '', 2, 0, 3, 5, 5, '2018-12-19 17:36:19', 16, '2018-12-19 17:36:33', 16),
-(33, 'test issue belong to project2', '1', 2, 0, 3, 5, 5, '2018-12-19 17:38:48', 16, '2018-12-19 17:38:57', 16);
+(33, 'test issue belong to project2', '1', 2, 0, 3, 5, 5, '2018-12-19 17:38:48', 16, '2018-12-19 17:38:57', 16),
+(34, 'test issue1', '', 4, 0, 3, NULL, NULL, '2018-12-22 18:40:35', 12, '2018-12-22 18:40:35', 12),
+(35, 'test issue1', '111', 4, 0, 3, NULL, NULL, '2018-12-22 18:40:48', 12, '2018-12-22 18:40:48', 12),
+(36, 'test issue belong to project1', '', 2, 0, 3, 5, 5, '2018-12-22 18:44:00', 12, '2018-12-22 18:44:00', 12),
+(37, 'test issue belong to project1', '', 4, 0, 3, NULL, NULL, '2018-12-22 20:21:31', 12, '2018-12-22 20:21:31', 12),
+(38, 'test issue belong to project1', '', 4, 0, 3, NULL, NULL, '2018-12-22 20:54:05', 12, '2018-12-22 20:54:05', 12),
+(39, 'test issue belong to project1', '', 4, 0, 3, NULL, NULL, '2018-12-22 20:55:41', 12, '2018-12-22 20:55:41', 12),
+(40, 'test issue belong to project1', '', 4, 0, 3, NULL, NULL, '2018-12-22 20:55:55', 12, '2018-12-22 20:55:55', 12),
+(41, 'test issue belong to project1', '', 4, 0, 3, NULL, NULL, '2018-12-22 20:56:16', 12, '2018-12-22 20:56:16', 12),
+(42, 'test issue belong to project1', '', 4, 0, 3, NULL, NULL, '2018-12-22 20:57:59', 12, '2018-12-22 20:57:59', 12);
 
 -- --------------------------------------------------------
 
@@ -177,7 +188,10 @@ CREATE TABLE `tbl_project` (
 INSERT INTO `tbl_project` (`id`, `name`, `description`, `create_time`, `create_user_id`, `update_time`, `update_user_id`) VALUES
 (1, 'project1', 'project111', NULL, NULL, '2018-12-17 22:13:56', 12),
 (2, 'Test Project15', 'testtesttesttest', '2018-12-16 13:56:34', 5, '2018-12-16 14:38:28', 12),
-(3, 'Test Project15', '$model=$this->loadModel($id);	\r\n		$project=$this->loadProject($model->project_id);\r\n		$params=array(\'project\'=>$project);', '2018-12-19 15:57:14', 12, '2018-12-19 15:57:14', 12);
+(3, 'Test Project15', '$model=$this->loadModel($id);	\r\n		$project=$this->loadProject($model->project_id);\r\n		$params=array(\'project\'=>$project);', '2018-12-19 15:57:14', 12, '2018-12-19 15:57:14', 12),
+(4, 'Test Project', '123', '2018-12-22 18:40:23', 12, '2018-12-22 18:40:23', 12),
+(5, 'Test Project1515', '15', '2018-12-22 21:03:30', 12, '2018-12-22 21:03:30', 12),
+(6, 'Test Project1500', '1', '2018-12-22 21:10:15', 12, '2018-12-22 21:10:15', 12);
 
 -- --------------------------------------------------------
 
@@ -211,7 +225,9 @@ INSERT INTO `tbl_project_user_assignment` (`project_id`, `user_id`, `create_time
 (2, 14, NULL, NULL, NULL, NULL),
 (2, 15, NULL, NULL, NULL, NULL),
 (2, 16, NULL, NULL, NULL, NULL),
-(3, 17, NULL, NULL, NULL, NULL);
+(3, 17, NULL, NULL, NULL, NULL),
+(5, 11, NULL, NULL, NULL, NULL),
+(5, 12, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -234,6 +250,8 @@ INSERT INTO `tbl_project_user_role` (`project_id`, `user_id`, `role`) VALUES
 (1, 8, 'reader'),
 (1, 10, 'member'),
 (1, 11, 'owner'),
+(5, 11, 'member'),
+(5, 12, 'owner'),
 (2, 13, 'owner'),
 (2, 14, 'reader'),
 (2, 15, 'reader'),
@@ -263,7 +281,8 @@ INSERT INTO `tbl_sys_message` (`id`, `message`, `create_time`, `create_user_id`,
 (1, 'This is a test news. ', '2018-12-15 18:08:43', 12, '2018-12-16 16:12:56', 12),
 (2, 'test', '2018-12-16 16:35:24', 5, '2018-12-16 16:35:24', 5),
 (3, 'testhttps://stackoverflow.com/questions/43902485/php-mailer-warning-trim-expects-parameter-1-to-be-string', '2018-12-16 17:32:48', 5, '2018-12-16 17:32:59', 5),
-(4, 'test123', '2018-12-16 17:56:17', 5, '2018-12-16 17:56:26', 5);
+(4, 'test123', '2018-12-16 17:56:17', 5, '2018-12-16 17:56:26', 5),
+(5, '123', '2018-12-22 18:41:08', 12, '2018-12-22 18:41:08', 12);
 
 -- --------------------------------------------------------
 
@@ -288,7 +307,7 @@ CREATE TABLE `tbl_user` (
 --
 
 INSERT INTO `tbl_user` (`id`, `email`, `username`, `password`, `last_login_time`, `create_time`, `create_user_id`, `update_time`, `update_user_id`) VALUES
-(1, 'test1@notanaddress.com', 'Test_User_One', '5a105e8b9d40e1329780d62ea2265d8a', '2018-12-16 15:32:05', NULL, NULL, '2018-12-09 23:11:14', 0),
+(1, 'test1@notanaddress.com', 'Test_User_One', '5a105e8b9d40e1329780d62ea2265d8a', '2018-12-22 20:16:19', NULL, NULL, '2018-12-09 23:11:14', 0),
 (2, 'test2@notanaddress.com', 'Test_User_Two', 'ad0234829205b9033196ba818f7a872b', NULL, NULL, NULL, NULL, NULL),
 (5, '7777@123.com', '777', 'f1c1592588411002af340cbaedd6fc33', '2018-12-17 22:04:47', '2018-12-09 14:00:33', 0, '2018-12-09 23:08:30', 0),
 (7, '999@1923.com', '999', 'b706835de79a2b4e80506f582af3676a', '2018-12-17 16:00:21', '2018-12-10 10:14:50', 0, '2018-12-10 10:16:24', 0),
@@ -296,8 +315,8 @@ INSERT INTO `tbl_user` (`id`, `email`, `username`, `password`, `last_login_time`
 (9, '123@1238.com', 'Test_for_project1', 'e10adc3949ba59abbe56e057f20f883e', NULL, '2018-12-13 15:15:03', 1, '2018-12-13 15:15:03', 1),
 (10, '123@12388888.com', '1010', '1e48c4420b7073bc11916c6c1de226bb', '2018-12-17 22:18:38', '2018-12-13 16:00:54', 1, '2018-12-13 16:00:54', 1),
 (11, '7777@1288888888883.com', 'project1_owner', '628efa8405a560c875b75f35058c49ba', '2018-12-17 22:19:46', '2018-12-13 16:16:37', 1, '2018-12-13 16:16:37', 1),
-(12, '123@823.com', 'admin', '21232f297a57a5a743894a0e4a801fc3', '2018-12-19 17:39:33', '2018-12-14 00:17:47', 1, '2018-12-14 00:17:47', 1),
-(13, '7777@123.c66', 'project2_owner', '2c73b4abc6f013e6d9de6e07785ff993', '2018-12-19 17:55:33', '2018-12-18 14:17:40', 12, '2018-12-18 14:17:40', 12),
+(12, '123@823.com', 'admin', '21232f297a57a5a743894a0e4a801fc3', '2018-12-22 20:20:04', '2018-12-14 00:17:47', 1, '2018-12-14 00:17:47', 1),
+(13, '7777@123.c66', 'project2_owner', '2c73b4abc6f013e6d9de6e07785ff993', '2018-12-22 20:16:59', '2018-12-18 14:17:40', 12, '2018-12-18 14:17:40', 12),
 (14, '188823@123.com', 'project2_reader', '27213f66a2f978e3c22725cf5bad464d', '2018-12-19 17:53:28', '2018-12-18 14:24:45', 12, '2018-12-18 14:24:45', 12),
 (15, '778777@123.com', 'reader_for_project2', '5f7b6924814e7f20f64d3b1021d47ec6', '2018-12-18 16:50:17', '2018-12-18 16:49:45', 12, '2018-12-18 16:49:45', 12),
 (16, '887777@123.com', 'project2_member', 'a8148bc9183e5d025d15408105ccc479', '2018-12-19 17:38:38', '2018-12-19 09:50:22', 12, '2018-12-19 09:50:22', 12),
@@ -376,17 +395,17 @@ ALTER TABLE `tbl_user`
 -- AUTO_INCREMENT for table `tbl_issue`
 --
 ALTER TABLE `tbl_issue`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 --
 -- AUTO_INCREMENT for table `tbl_project`
 --
 ALTER TABLE `tbl_project`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `tbl_sys_message`
 --
 ALTER TABLE `tbl_sys_message`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `tbl_user`
 --
